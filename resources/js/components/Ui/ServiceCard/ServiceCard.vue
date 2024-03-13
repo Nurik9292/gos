@@ -18,7 +18,7 @@ export default {
         display: flex;
         justify-content: space-between;
         width: 30%;
-        height: 200px;
+        height: 150px;
         align-items: center;
         cursor: pointer;
     }

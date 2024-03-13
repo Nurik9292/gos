@@ -4,18 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{--    <link rel="preload" as="font" href="fonts/Poppins/Poppins-Regular.ttf" type="font/ttf" crossorigin="anonymous"/>--}}
 
-
-{{--    <link rel="preload" as="font" href="fonts/Poppins/Poppins-Regular.ttf" type="font/ttf" crossorigin="anonymous"/>--}}
-
-    <title>Гос сайт</title>
+    <title>Admin panel</title>
 
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app">
-        <App></App>
-    </div>
+<div id="admin">
+    <AdminApp></AdminApp>
+</div>
 </body>
 </html>

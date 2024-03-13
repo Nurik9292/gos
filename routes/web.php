@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get("/{page}", \App\Http\Controllers\Site\MainController::class)->where("page", ".*");
+Route::get('/{admin}', \App\Http\Controllers\Admin\MainController::class)->where('admin', '^admin.*');
+
+
+Route::get("/{page}", \App\Http\Controllers\Site\MainController::class)->where("page", "(?!admin\/.*)");
 
 Auth::routes();
 

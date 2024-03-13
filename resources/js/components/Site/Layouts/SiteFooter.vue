@@ -59,6 +59,7 @@ export default {
 
 footer {
     background-color: #14d6c6;
+    height: auto;
     color: black;
     padding: 20px 0;
     display: flex;

@@ -37,7 +37,7 @@ export default {
                 <h1>Президент Туркменистана</h1>
                 <p>
                     2024 год в Туркменистане объявлен годом
-                    <span>Кладезь разума Махтумкули Фраги</span>
+                    <br><i>Кладезь разума</i><br><i>Махтумкули Фраги</i><br>
                     В соответствии с Постановлением О праздновании 300 летия со дня рождения
                     великоо мыслителя и поэта-классика Востока Махтукули Фраги, в стране
                     и за рубежом проводится комплексная работа в целях изучения и
@@ -67,6 +67,10 @@ export default {
 
 section{
     margin-bottom: 20px;
+}
+
+#carousel{
+    margin-bottom: 100px;
 }
 
 .banner {
@@ -122,13 +126,14 @@ section{
     line-height: 1.5;
 }
 
-.content span {
-    display: block;
+.content i, em {
     font-style: italic;
     width: 600px;
     margin-left: auto;
     font-size: 1.8vw;
 }
+
+
 
 .content h1{
     font-weight: 600;
@@ -215,7 +220,7 @@ section{
 
     .image img{
         width: 300px;
-        height: 450px;
+        height: 400px;
     }
 
 
@@ -259,7 +264,7 @@ section{
     }
 
     .image img{
-        width: 500px;
+        width: 300px;
     }
 }
 
@@ -271,12 +276,18 @@ section{
         align-items: center;
     }
 
+    .content{
+        width: 50%;
+        font: 15px Montserrat;
+        text-align: right
+    }
+
     .image img{
         width: 300px;
     }
 
     #card_wrapper_main{
-        margin-bottom: 850px;
+        margin-bottom: 650px;
     }
 }
 </style>

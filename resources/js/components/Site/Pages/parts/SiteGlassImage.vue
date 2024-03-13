@@ -19,7 +19,6 @@ export default {
                 </p>
             </div>
             <div class="image_head_image fx_shine_hover">
-                <div class="shine"></div>
                 <div>
                     <img src="/image/5.jpg" alt="Not found image">
                 </div>
@@ -95,35 +94,37 @@ p{
     position: relative;
     overflow: hidden;
     z-index: 1;
+    top: -140%;
+    transition: top 0.25s cubic-bezier(0, 0.3, 1, 1.7);
+
 }
 
 
+.fx_shine_hover:hover {
+    top: 140%;
+}
 
-.fx_shine_hover .shine {
+.fx_shine_hover:before, .fx_shine_hover:after {
+    content:'';
+    display: block;
     position: absolute;
-    top: 0;
-    left: -180%;
-    width: 200%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
-
+}
+.fx_shine_hover:before {
+    width: 140%;
+    top: inherit;
+    left: -20%;
+    opacity: 0.6;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 40%, rgba(255, 255, 255, 0.6) 60%, rgba(255, 255, 255, 0));
+    transform: rotate(-20deg);
+}
+.fx_shine_hover:after {
+    width: 100%;
+    top: 0;
+    border-radius: 50%;
+    box-shadow: inset -5px -15px 40px rgba(0, 0, 0, 0.1);
 }
 
-.fx_shine_hover:hover .shine{
-    animation-name: shine-animation;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes shine-animation {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
 
 
 @media screen and (max-width: 1250px){

@@ -80,64 +80,22 @@ function onSlideChange() {
                 class="tranding-slider">
 
                 <!-- Slide-start -->
-                <SwiperSlide class="tranding-slide">
+                <SwiperSlide v-for="image in slides" class="tranding-slide">
                     <div class="tranding-slide-img">
-                        <img src="/image/gallery/gallery1.jpg" alt="Tranding">
+                        <img :src="image" alt="Tranding">
                     </div>
                 </SwiperSlide>
-                <!-- Slide-end -->
-                <!-- Slide-start -->
-                <SwiperSlide class="tranding-slide">
-                    <div class="tranding-slide-img">
-                        <img src="/image/gallery/gallery2.jpg" alt="Tranding">
-                    </div>
-                </SwiperSlide>
-                <!-- Slide-end -->
-                <!-- Slide-start -->
-                <SwiperSlide class="tranding-slide">
-                    <div class="tranding-slide-img">
-                        <img src="/image/gallery/gallery3.jpg" alt="Tranding">
-                    </div>
-                </SwiperSlide>
-                <!-- Slide-end -->
-                <!-- Slide-start -->
-                <SwiperSlide class="tranding-slide">
-                    <div class="tranding-slide-img">
-                        <img src="/image/gallery/gallery4.jpg" alt="Tranding">
-                    </div>
-                </SwiperSlide>
-                <!-- Slide-end -->
-                <!-- Slide-start -->
-                <SwiperSlide class="tranding-slide">
-                    <div class="tranding-slide-img">
-                        <img src="/image/gallery/gallery5.jpg" alt="Tranding">
-                    </div>
 
-                </SwiperSlide>
-                <!-- Slide-end -->
-                <!-- Slide-start -->
-                <SwiperSlide class="tranding-slide">
-                    <div class="tranding-slide-img">
-                        <img src="/image/gallery/gallery6.jpg" alt="Tranding">
-                    </div>
-                </SwiperSlide>
-                <!-- Slide-end -->
-                <!-- Slide-start -->
-                <SwiperSlide class="tranding-slide">
-                    <div class="tranding-slide-img">
-                        <img src="/image/gallery/gallery7.jpg" alt="Tranding">
-                    </div>
-                </SwiperSlide>
                 <!-- Slide-end -->
 
 
             <div class="tranding-slider-control">
-                <div class="swiper-button-prev slider-arrow">
-                    <icon icon="fa-solid fa-arrow-left" name="arrow-back-outline" />
-                </div>
-                <div class="swiper-button-next slider-arrow ">
-                    <icon icon="fa-solid fa-arrow-right" name="arrow-forward-outline" />
-                </div>
+<!--                <div class="swiper-button-prev slider-arrow">-->
+<!--                    <icon icon="fa-solid fa-arrow-left" name="arrow-back-outline" />-->
+<!--                </div>-->
+<!--                <div class="swiper-button-next slider-arrow ">-->
+<!--                    <icon icon="fa-solid fa-arrow-right" name="arrow-forward-outline" />-->
+<!--                </div>-->
                 <div class="swiper-pagination"></div>
             </div>
 
@@ -194,7 +152,7 @@ function onSlideChange() {
 
 .tranding-slide {
     width: 37rem;
-    height: 42rem;
+    height: 32rem;
     position: relative;
 }
 
@@ -211,7 +169,7 @@ function onSlideChange() {
 
 .tranding-slide .tranding-slide-img img {
     width: 37rem;
-    height: 42rem;
+    height: 32rem;
     border-radius: 2rem;
     object-fit: cover;
 }

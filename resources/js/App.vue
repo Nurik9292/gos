@@ -20,7 +20,4 @@ export default {
     font-family: Montserrat;
 }
 
- body{
-    height: 1900px;
- }
 </style>

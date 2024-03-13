@@ -14,6 +14,7 @@ export default {
       isMobile: false,
       isActive: false,
       opacity: 1,
+        lastScrollPos: 0,
     }
   },
 
@@ -21,6 +22,7 @@ export default {
     window.addEventListener('resize', this.checkScreenForTel);
     window.addEventListener('resize', this.checkScreenForMobile);
     window.addEventListener('scroll', this.handleScroll);
+
   },
 
   mounted() {
@@ -29,28 +31,33 @@ export default {
 
 
   methods: {
-    checkScreenForTel() {
-      if (window.innerWidth < 1100)
-        this.telHidden = false;
-      else
-        this.telHidden = true;
-    },
+      checkScreenForTel() {
+          if (window.innerWidth < 1100)
+              this.telHidden = false;
+          else
+              this.telHidden = true;
+      },
 
-    checkScreenForMobile() {
-      if (window.innerWidth < 890)
-        this.isMobile = true
-      else
-        this.isMobile = false
-    },
+      checkScreenForMobile() {
+          if (window.innerWidth < 890)
+              this.isMobile = true
+          else
+              this.isMobile = false
+      },
 
-    toggleHamburger() {
-      this.isActive = !this.isActive;
-    },
+      toggleHamburger() {
+          this.isActive = !this.isActive;
+      },
 
-    handleScroll() {
-        const scrollY = window.scrollY;
-      this.opacity = Math.max(0, 1 - scrollY / 100);
-    }
+      handleScroll() {
+          const scrollY = window.scrollY;
+          if (scrollY < this.lastScrollPos) {
+              this.opacity = 1;
+          } else {
+              this.opacity = Math.max(0, 1 - scrollY / 100);
+          }
+          this.lastScrollPos = scrollY;
+      },
   },
 
   beforeDestroy() {
@@ -69,7 +76,7 @@ export default {
       <div>
         <ul>
           <li><RouterLink :to="{name: 'main'}">Главная</RouterLink></li>
-          <li><a href="#carousel">Галарея</a></li>
+          <li><RouterLink :to="{name: 'gallery'}">Галарея</RouterLink></li>
           <li><RouterLink :to="{name: 'abouts'}">О Компании</RouterLink></li>
           <li><a href="#footer">Контакты</a></li>
           <li v-if="telHidden"> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
@@ -91,7 +98,7 @@ export default {
       <div class="menuwrapper">
         <ul>
           <li><RouterLink :to="{name: 'main'}">Главная</RouterLink></li>
-          <li><a href="#carousel">Галарея</a></li>
+            <li><RouterLink :to="{name: 'gallery'}">Галарея</RouterLink></li>
           <li><RouterLink :to="{name: 'abouts'}">О Компании</RouterLink></li>
           <li><a href="#footer">Контакты</a></li>
           <li> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
@@ -102,7 +109,6 @@ export default {
       </div>
     </div>
     </nav>
-
   </header>
 </template>
 

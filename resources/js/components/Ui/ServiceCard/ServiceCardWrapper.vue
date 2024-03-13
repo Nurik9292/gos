@@ -49,7 +49,7 @@ export default {
 <style scoped>
     .main{
         width: 70%;
-        height: 1300px;
+        height: 1000px;
         display: flex;
         flex-direction: column;
     }

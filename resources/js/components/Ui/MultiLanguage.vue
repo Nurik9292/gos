@@ -1,30 +1,55 @@
 <script>
 export default {
     name: "MultiLanguage",
-}
+
+    data() {
+        return {
+            languages: [
+            {
+                code: "Ru",
+                name: "Русский",
+                image: "image/local/ru.svg",
+            },
+            {
+                code: "En",
+                name: "English",
+                image: "image/local/en.svg",
+            },
+            {
+                code: "tm",
+                name: "Español",
+                image: "image/local/tm.svg",
+            }],
+        };
+    },
+
+    methods: {
+
+        swapLanguages(index) {
+            const temp = this.languages[0];
+            this.languages[0] = this.languages[index];
+            this.languages[index] = temp;
+        },
+    },
+};
 </script>
 
 <template>
-<div class="language-switcher">
-  <button class="lang-btn" aria-label="Выбрать язык">
-    <a href="#">
-      <img src="image/local/ru.svg" alt="Русский">
-      <span>Ru</span>
-    </a>
-  </button>
-  <div class="lang-list">
-    <a href="#">
-      <img src="image/local/en.svg" alt="English">
-      <span>En</span>
-    </a>
-    <a href="#">
-      <img src="image/local/tm.svg" alt="Español">
-      <span>Tm</span>
-    </a>
-  </div>
-</div>
+    <div class="language-switcher">
+        <button class="lang-btn" aria-label="Выбрать язык" @click="swapLanguages(0)">
+            <a href="#">
+                <img :src="languages[0].image" :alt="languages[0].name">
+                <span>{{ languages[0].code }}</span>
+            </a>
+        </button>
+        <div class="lang-list">
+            <a v-for="(language, index) in languages.slice(1)" :key="index" href="#" @click="swapLanguages(index + 1)">
+                <img :src="language.image" :alt="language.name">
+                <span>{{ language.code }}</span>
+            </a>
+        </div>
+    </div>
 </template>
-
 
 <style scoped>
 .language-switcher {
@@ -43,7 +68,6 @@ export default {
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
-  background-color: #f7f7f7;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
 }
