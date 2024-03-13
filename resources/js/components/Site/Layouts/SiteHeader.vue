@@ -90,9 +90,9 @@ export default {
     <div class="menu" v-show="isActive">
       <div class="menuwrapper">
         <ul>
-          <li><a href="#">Главная</a></li>
+          <li><RouterLink :to="{name: 'main'}">Главная</RouterLink></li>
           <li><a href="#carousel">Галарея</a></li>
-          <li><a href="#">О Компании</a></li>
+          <li><RouterLink :to="{name: 'abouts'}">О Компании</RouterLink></li>
           <li><a href="#footer">Контакты</a></li>
           <li> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
           <li>
@@ -108,43 +108,45 @@ export default {
 
 <style lang="scss" scoped>
 header {
-height: 150px;
-  background: #14d6c6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  transition: all 0.3s ease;
+    height: 120px;
+    background: #14d6c6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
 nav {
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
 }
 
 .box_image {
-  background-color: white;
-  width: 450px;
-  height: 150px;
-  clip-path: polygon(100px 0, calc(100%) 0, 100% 20px, 100% calc(80% - 120px), calc(100% - 80px) 100%, 20px 100%, 0 calc(100%));
-  margin-right: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+     background-color: white;
+     width: 250px;
+    height: 120px;
+    transform: skew(-40deg);
+    margin-right: 250px;
+    display: flex;
+    justify-content: center;
+     align-items: center;
 }
 
 img {
-  width: 250px;
-  display: block;
-  height: 150px;
-  box-sizing: border-box;
+    width: 250px;
+    display: block;
+    height: 120px;
+    box-sizing: border-box;
+    transform: skew(40deg);
 }
 
 
@@ -163,16 +165,17 @@ li:last-child {
 }
 
 a {
-  display: block;
-  text-decoration: none;
-  z-index: 1;
-  font: 1.3em Montserrat;
-  font-weight: 600;
-  height: 50px;
-  line-height: 50px;
-  margin-right: 30px;
-  padding: 10px 20px;
-  color: white;
+    display: block;
+    text-decoration: none;
+    z-index: 1;
+    font: 15px Arial sans-serif;
+    font-weight: bold;
+    height: 30px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    color: white;
 }
 
 a:hover {
@@ -180,6 +183,12 @@ a:hover {
   color: #FFD700;
   outline-offset: -2px;
   transition: all 0.5s ease-in-out;
+}
+
+@media screen and (min-width: 2251px){
+    img{
+        width: 100px;
+    }
 }
 
 @media screen and (max-width: 2250px) {
@@ -196,9 +205,10 @@ img {
 
 
 @media screen and (max-width: 1800px) {
-  nav {
-    width: 100%;
-  }
+    nav {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 1520px) {

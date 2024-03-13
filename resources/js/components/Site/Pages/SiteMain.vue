@@ -71,7 +71,7 @@ section{
 
 .banner {
     width: 100%;
-    height: 750px;
+    height: 650px;
     background-color: #333;
     margin-top: 40px;
     color: #fff;
@@ -102,7 +102,7 @@ section{
 }
 
 .part{
-    width: 70%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
 }

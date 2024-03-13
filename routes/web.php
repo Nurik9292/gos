@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get("/", \App\Http\Controllers\Site\MainController::class)->name("Site.main");
+Route::get("/{page}", \App\Http\Controllers\Site\MainController::class)->where("page", ".*");
 
 Auth::routes();
 

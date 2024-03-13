@@ -9,7 +9,7 @@ export default {
 
     data(){
         return{
-            contentFixed: "Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem"
+            contentFixed: "Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem"
         }
     }
 }
@@ -53,11 +53,11 @@ export default {
 
 <style scoped>
 .card_wrapper{
-    width: 70%;
+    width: 60%;
     height: 10px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 400px;
+    margin-bottom: 300px;
 }
 
 #site_card{
