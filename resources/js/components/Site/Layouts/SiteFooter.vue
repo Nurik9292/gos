@@ -1,6 +1,17 @@
 <script>
 export default {
     name: "SiteFooter",
+
+    props: ["logo", "footer"],
+
+    computed:{
+        getContent(){
+            let content;
+            if(this.footer)
+                content = this.footer.content.ru;
+            return content;
+        }
+    }
 }
 </script>
 
@@ -8,32 +19,32 @@ export default {
     <footer>
         <div class="footer_body">
             <div class="footer_content">
-                <img src="/image/logo.png" alt="not fond">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam assumenda beatae dolorem est ex natus, nobis officia quia sed similique voluptas? At, delectus deserunt dolorem, eos, eum fuga itaque minima mollitia natus possimus rem sapiente tempora ullam unde vero? Aspernatur at cupiditate ducimus illum itaque laudantium magnam non tempore?</p>
+                <img :src="logo" alt="not fond">
+                <p>{{getContent}}</p>
             </div>
             <div class="footer_feedback">
                 <div class="box_address">
                     <ul>
                         <li>
-                            <p>Тел:</p>
+                            <p>{{$t('tel')}}:</p>
                             <span>+99361112233</span>
                         </li>
                         <li>
-                            <p>Почта:</p>
+                            <p>{{ $t('main') }}:</p>
                             <span>example@gmail.com</span>
                         </li>
                         <li>
-                            <p>Адрес:</p>
+                            <p>{{ $t('address') }}:</p>
                             <span>Город Ашхабад</span>
                         </li>
                         <li>
-                            <p>Рабочие часы:</p>
+                            <p>{{ $t('work-time') }}:</p>
                             <span>8:00 - 23:00 пн-вс</span>
                         </li>
                     </ul>
                 </div>
                 <div class="box_email">
-                    <h3>Обрантая связь</h3>
+                    <h3>{{ $t('feedback') }}</h3>
                     <ul>
                         <li class="nav-item mb-2">
                             <input type="tel" id="phone" name="phone" placeholder="+9961363636">
@@ -192,7 +203,4 @@ li{
         font-size: 0.8em;
     }
 }
-
-
-
 </style>

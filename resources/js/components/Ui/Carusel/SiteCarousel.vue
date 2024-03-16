@@ -1,11 +1,11 @@
 <script>
 import SwiperCore from "swiper";
 
-import { Navigation, Pagination,  Scrollbar, A11y, EffectCoverflow} from 'swiper/modules';
+import {Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay} from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
-SwiperCore.use([Pagination, Navigation]);
+SwiperCore.use([Pagination, Navigation, Autoplay]);
 
 export default {
     name: "SiteCarousel",
@@ -15,22 +15,14 @@ export default {
         SwiperSlide,
         Scrollbar,
         A11y,
-        EffectCoverflow
+        EffectCoverflow,
+        Autoplay
     },
+    props:['slides'],
+
     data(){
         return{
-            slides:[
-                "/image/gallery/gallery1.jpg",
-                "/image/gallery/gallery2.jpg",
-                "/image/gallery/gallery3.jpg",
-                "/image/gallery/gallery4.jpg",
-                "/image/gallery/gallery5.jpg",
-                "/image/gallery/gallery6.jpg",
-                "/image/gallery/gallery7.jpg",
-                "/image/gallery/gallery8.jpg",
-            ],
-
-            modules: [Navigation, Pagination, Scrollbar, A11y, EffectCoverflow],
+            modules: [Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay],
        }
     },
 
@@ -59,6 +51,7 @@ function onSlideChange() {
     <div class="container">
         <Swiper :modules="modules"
                 effect="coverflow"
+                :autoplay="{delay: 2500}"
                 :grabCursor="true"
                 :centeredSlides="true"
                 :loop="true"
@@ -80,9 +73,9 @@ function onSlideChange() {
                 class="tranding-slider">
 
                 <!-- Slide-start -->
-                <SwiperSlide v-for="image in slides" class="tranding-slide">
+                <SwiperSlide v-for="item in slides" class="tranding-slide">
                     <div class="tranding-slide-img">
-                        <img :src="image" alt="Tranding">
+                        <img :src="item.image" alt="Tranding">
                     </div>
                 </SwiperSlide>
 

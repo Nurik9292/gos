@@ -5,11 +5,14 @@ import SiteGlassImage from "./parts/SiteGlassImage.vue";
 import ServiceCardWrapper from "../../Ui/ServiceCard/ServiceCardWrapper.vue";
 import CarouselWrapper from "../../Ui/Carusel/CarouselWrapper.vue";
 import SiteFooter from "../Layouts/SiteFooter.vue";
+import api from "../../../services/api.js";
+import ContentMain from "./parts/ContentMain.vue";
 
 export default {
     name: "SiteIndex",
 
     components:{
+        ContentMain,
         SiteHeader,
         CardWrapper,
         SiteGlassImage,
@@ -18,55 +21,111 @@ export default {
         SiteFooter
     },
 
+    data(){
+        return {
+            local: this.$i18n.locale,
+            mainBanner: '',
+            glassContent: [],
+            glassImage: '',
+            cards: [],
+            contents:[],
+            cleanBanner: '',
+            cleanTitle: '',
+            services: [],
+            lastGallery: [],
+        }
+    },
+
+    computed:{
+        titleClean(){
+            const local = this.$i18n.locale;
+
+            if(this.cleanTitle)
+                switch (local) {
+                    case 'tm':
+                        return this.cleanTitle.tm;
+                    case 'ru':
+                        return this.cleanTitle.ru;
+                    case 'en':
+                        return this.cleanTitle.en;
+                    default:
+                        return '';
+                }
+        }
+    },
+
+
+    mounted(){
+        api.getContents()
+            .then(data => {
+                this.contents = data.data[0]
+            })
+            .catch(error => console.error('Error fetching contents:', error));
+
+        api.getBanners()
+            .then(data => {
+                this.mainBanner = data.data[0].image;
+                this.glassContent = data.data[1].content;
+                this.glassImage = data.data[1].image;
+                this.cleanBanner = data.data[2].image;
+                this.cleanTitle = data.data[2].title;
+            })
+            .catch(error => console.error('Error fetching banners:', error));
+
+        api.getCards()
+            .then(data => {
+                this.cards = data.data
+            })
+            .catch(error => console.error('Error fetching cards:', error));
+
+
+        api.getServices()
+            .then(data => {
+               this.services = data.data;
+            })
+            .catch(error => console.error('Error fetching services:', error));
+
+        api.getLastGalleries()
+            .then(data => {
+                this.lastGallery = data.data;
+            })
+            .catch(error => console.error('Error fetching last gallery:', error));
+    }
+
 }
 </script>
 
 <template>
     <div class="banner">
-        <img src="image/5.jpg" alt="Изображение баннера">
+        <img :src="mainBanner" alt="Изображение баннера">
     </div>
     <section id="card_wrapper_main">
-        <CardWrapper></CardWrapper>
+        <CardWrapper :cards="cards"></CardWrapper>
     </section>
     <section id="president">
-        <div class="part">
-            <div class="image">
-                <img src="image/art2.webp" alt="Not art">
-            </div>
-            <div class="content">
-                <h1>Президент Туркменистана</h1>
-                <p>
-                    2024 год в Туркменистане объявлен годом
-                    <br><i>Кладезь разума</i><br><i>Махтумкули Фраги</i><br>
-                    В соответствии с Постановлением О праздновании 300 летия со дня рождения
-                    великоо мыслителя и поэта-классика Востока Махтукули Фраги, в стране
-                    и за рубежом проводится комплексная работа в целях изучения и
-                    популяризации в мире богатого и бисценного литературного наследия великого мастера слов
-                </p>
-            </div>
-        </div>
+        <ContentMain :contents="contents"></ContentMain>
     </section>
     <section>
-        <SiteGlassImage></SiteGlassImage>
+        <SiteGlassImage :image="glassImage" :content="glassContent"></SiteGlassImage>
     </section>
     <section>
-        <ServiceCardWrapper></ServiceCardWrapper>
+        <ServiceCardWrapper :services="services"></ServiceCardWrapper>
     </section>
     <section>
         <div class="second_banner">
-            <img src="image/otel.jpg" alt="Изображение баннера">
+            <img :src="cleanBanner" alt="Изображение баннера">
             <div class="text_banner">
-                <h1 class="typed-text">Чистота города под нашем контролем</h1>
+                <h1 class="typed-text">{{titleClean}}</h1>
             </div>
         </div>
     </section>
-    <CarouselWrapper id="carousel"></CarouselWrapper>
+    <CarouselWrapper :gallery="lastGallery" id="carousel"></CarouselWrapper>
 </template>
 
 <style scoped>
 
 section{
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 #carousel{
@@ -75,7 +134,7 @@ section{
 
 .banner {
     width: 100%;
-    height: 650px;
+    height: 850px;
     background-color: #333;
     margin-top: 40px;
     color: #fff;
@@ -105,43 +164,6 @@ section{
     margin-bottom: 30px;
 }
 
-.part{
-    width: 60%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.image img{
-    width: 500px;
-    height: 650px;
-}
-
-.content{
-    width: 50%;
-    font: 1.1vw Montserrat;
-    text-align: right
-}
-
-.content p{
-    line-height: 1.5;
-}
-
-.content i, em {
-    font-style: italic;
-    width: 600px;
-    margin-left: auto;
-    font-size: 1.8vw;
-}
-
-
-
-.content h1{
-    font-weight: 600;
-}
-
-#president{
-    margin-bottom: 40px;
-}
 
 .second_banner {
     position: relative;
@@ -199,34 +221,7 @@ section{
 
 
 
-@media screen and (max-width: 2150px) {
-    .image img{
-        width: 400px;
-        height: 550px;
-    }
-
-}
-
-@media screen and (max-width: 1900px) {
-
-
-
-    .content span {
-        width: 400px;
-    }
-}
-
 @media screen and (max-width: 1500px) {
-
-    .image img{
-        width: 300px;
-        height: 400px;
-    }
-
-
-    .content span {
-        width: 400px;
-    }
 
     #card_wrapper_main{
         margin-bottom: 400px;
@@ -234,57 +229,16 @@ section{
 
 }
 
-@media screen and (max-width: 1200px) {
-
-
-    .content span {
-        width: 300px;
-    }
-
-}
 
 @media screen and (max-width: 900px) {
-
-
-    .content span {
-        width: 200px;
-    }
 
     #card_wrapper_main{
         margin-bottom: 600px;
     }
 }
 
-@media screen and (max-width: 800px) {
-
-    .part{
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .image img{
-        width: 300px;
-    }
-}
 
 @media screen and (max-width: 600px) {
-
-    .part{
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .content{
-        width: 50%;
-        font: 15px Montserrat;
-        text-align: right
-    }
-
-    .image img{
-        width: 300px;
-    }
 
     #card_wrapper_main{
         margin-bottom: 650px;

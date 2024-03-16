@@ -6,20 +6,41 @@ export default {
     components: {Icon},
 
     props:[
-        "icon",
-        "content",
+        "card",
         "colorIcon",
         "colorFon",
         "color",
         "marginTop"
     ],
+
+    computed:{
+        image(){
+          if(this.card)
+              return this.card.image;
+        },
+
+        content(){
+            const local = this.$i18n.locale;
+            if(this.card)
+            switch (local){
+                case 'tm':
+                return this.card.content.tm;
+                case 'ru':
+                    return this.card.content.ru;
+                case 'en':
+                    return this.card.content.en;
+                default:
+                    return '';
+            }
+        }
+    }
 }
 </script>
 
 <template>
     <div class="cards" :style="{background: colorFon, 'margin-top': marginTop}">
         <div class="card_image" :style="{background: colorIcon, color: color}">
-            <icon :icon="icon" />
+            <img class="img-svg" :src="image">
         </div>
         <div class="card_text">
             {{content}}
@@ -42,12 +63,22 @@ export default {
 
 .card_image{
     height: 70px;
-    width: 50px;
+    width: 70px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     margin-top: 20px;
+}
+
+img{
+    width: 44px;
+}
+
+
+.img-svg {
+
 }
 
 .card_text{

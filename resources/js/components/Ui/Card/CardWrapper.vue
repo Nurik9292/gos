@@ -3,13 +3,14 @@ import SiteCard from "./SiteCard.vue";
 export default {
     name: "CardWrapper",
 
+    props:['cards'],
+
     components:{
         SiteCard
     },
 
     data(){
         return{
-            contentFixed: "Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem"
         }
     }
 }
@@ -17,34 +18,30 @@ export default {
 <template>
     <div class="card_wrapper">
         <SiteCard id="site_card"
-            icon="fa-solid fa-wheat-awn"
+            :card="cards[0]"
             colorFon="#14d6c6"
             colorIcon="#0a3622"
-            :content="contentFixed"
             color="white"
             marginTop="-100px"
         ></SiteCard>
         <SiteCard id="site_card"
-            icon="fa-solid fa-screwdriver-wrench"
+             :card="cards[1]"
             colorFon="#0a3622"
             colorIcon="#14d6c6"
-            :content="contentFixed"
             color="black"
             marginTop="-60px"
         ></SiteCard>
         <SiteCard id="site_card"
-            icon="fa-solid fa-magnifying-glass"
+            :card="cards[2]"
             colorFon="#0a3622"
             colorIcon="#14d6c6"
-            :content="contentFixed"
             color="black"
             marginTop="-60px"
         ></SiteCard>
         <SiteCard id="site_card"
-            icon="fa-solid fa-hand-holding-droplet"
+            :card="cards[3]"
             colorFon="#0a3622"
             colorIcon="#14d6c6"
-            :content="contentFixed"
             color="black"
             marginTop="-60px"
         ></SiteCard>
@@ -66,7 +63,7 @@ export default {
 }
 
 #site_card:hover {
-    transform: translateY(-30px);
+    transform: translateY(-50px);
 }
 
 #site_card:first-child:hover{

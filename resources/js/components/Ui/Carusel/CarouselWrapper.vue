@@ -5,7 +5,7 @@ import SiteCarousel from "./SiteCarousel.vue";
 export default {
     name: "CarouselWrapper",
     components: {SiteCarousel},
-
+    props:["gallery"]
 
 }
 </script>
@@ -13,10 +13,10 @@ export default {
 <template>
     <div id="carus">
         <div class="text_head">
-            <h2>Галерея</h2>
+            <h2>{{ $t('gallery-main') }}</h2>
             <div class="line"></div>
         </div>
-        <SiteCarousel></SiteCarousel>
+        <SiteCarousel :slides="gallery"></SiteCarousel>
     </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
     }
 
     .text_head{
-        font: 1.2em Montserrat;
+        font: 1.4vw Montserrat;
         align-items: center;
         text-align: center;
         font-weight: 600;

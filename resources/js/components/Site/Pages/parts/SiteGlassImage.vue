@@ -1,6 +1,30 @@
 <script>
+
 export default {
-    name: "SiteGlassImage"
+    name: "SiteGlassImage",
+
+    props:["image", "content"],
+
+    computed:{
+
+        getContent () {
+            const local = this.$i18n.locale;
+
+            switch (local) {
+                case 'tm':
+                    return this.content.tm;
+                case 'ru':
+                    return this.content.ru;
+                case 'en':
+                    return this.content.en;
+                default:
+                    return '';
+            }
+        }
+    },
+
+
+    methods: {}
 }
 </script>
 
@@ -8,19 +32,19 @@ export default {
     <div class="main_glass">
         <div class="text_head">
             <h2>
-                Ашгабад шахер Арассалайыш, абаданлашдырыш <br /> бирлешигинин алып барйан ишлери
+               {{ $t('association') }}
             </h2>
             <div class="line"></div>
         </div>
         <div class="image_head">
             <div class="image_head_content">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cupiditate deleniti dolores doloribus ex, id molestiae nostrum officiis omnis pariatur quibusdam quod rem repellendus similique velit? Aliquam at culpa, debitis est eveniet incidunt, iusto labore libero maiores omnis perferendis quibusdam, quis repellat repellendus ullam! Aspernatur cupiditate deleniti doloremque ex fugit ipsa minima, numquam odio optio quaerat sit ullam vitae! Ad alias eius labore odit ut. Adipisci aperiam at debitis eaque eligendi eos est eum labore modi pariatur quam qui, voluptas?
+                    {{ getContent }}
                 </p>
             </div>
             <div class="image_head_image fx_shine_hover">
                 <div>
-                    <img src="/image/5.jpg" alt="Not found image">
+                    <img :src="image" alt="Not found image">
                 </div>
             </div>
         </div>
@@ -41,10 +65,14 @@ export default {
     text-align: center;
     font-weight: 600;
     margin-bottom: 50px;
+    justify-items: center;
 }
 
 h2{
     margin-bottom: 20px;
+    display: block;
+    width: 650px;
+    margin: 0 auto;
 }
 
 .line{
@@ -82,7 +110,7 @@ h2{
 
 .image_head_image img{
     width: 100%;
-    height: 100%;
+    height: 350px;
 }
 
 p{
@@ -137,6 +165,10 @@ p{
         height: 250px;
         width: 50%;
     }
+
+    .image_head_image img{
+        height: 250px;
+    }
 }
 
 @media screen and (max-width: 900px){
@@ -150,6 +182,10 @@ p{
         height: 200px;
         width: 50%;
     }
+
+    .image_head_image img{
+        height: 200px;
+    }
 }
 
 @media screen and (max-width: 750px){
@@ -162,6 +198,11 @@ p{
         height: 150px;
         width: 50%;
     }
+
+    .image_head_image img{
+        height: 150px;
+    }
+
 }
 
 @media screen and (max-width: 600px){
@@ -173,6 +214,10 @@ p{
     .image_head_image{
         height: 100px;
         width: 50%;
+    }
+
+    .image_head_image img{
+        height: 100px;
     }
 
     p{
@@ -190,6 +235,10 @@ p{
     .image_head_image{
         height: 80px;
         width: 50%;
+    }
+
+    .image_head_image img{
+        height: 80px;
     }
 
 }

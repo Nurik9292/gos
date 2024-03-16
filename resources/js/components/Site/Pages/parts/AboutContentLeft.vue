@@ -1,15 +1,48 @@
 <script>
 export default {
-    name: "AboutContentLeft"
+    name: "AboutContentLeft",
+
+    props: ["about"],
+
+    computed:{
+        title(){
+            const local = this.$i18n.locale;
+            if (this.about && this.about.title) {
+                switch (local) {
+                    case 'tm': return this.about.title.tm;
+                    case 'ru': return this.about.title.ru;
+                    case 'en': return this.about.title.en;
+                    default: return '';
+                }
+            }
+        },
+
+        content(){
+            const local = this.$i18n.locale;
+            if (this.about && this.about.content) {
+                switch (local) {
+                    case 'tm': return this.about.content.tm;
+                    case 'ru': return this.about.content.ru;
+                    case 'en': return this.about.content.en;
+                    default: return '';
+                }
+            }
+        },
+
+        image(){
+            if (this.about && this.about.image)
+                return this.about.image;
+        }
+    }
 }
 </script>
 
 <template>
     <div class="about_content">
-        <img src="/image/gallery/gallery1.jpg" alt="not found">
+        <img :src="image" alt="not found">
         <div class="about_content_text">
-            <h3>Aşgabat şäher Arassalaýyş, abadanlaşdyryş<br>birleşiginiň Şertnama bölümi</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi consectetur cupiditate dolor, eveniet fugiat ipsum, necessitatibus non perspiciatis porro quam quis quo recusandae, sequi vero! Exercitationem incidunt provident recusandae velit? A atque autem dicta doloribus ducimus, eius enim itaque laboriosam neque, officia perferendis quaerat repellat soluta, ut vitae. Adipisci.</p>
+            <h3>{{title}}</h3>
+            <p>{{content}}</p>
         </div>
     </div>
 </template>

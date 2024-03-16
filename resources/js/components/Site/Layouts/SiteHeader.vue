@@ -1,5 +1,6 @@
 <script>
 import MultiLanguage from "@/components/Ui/MultiLanguage.vue";
+import { useStore } from 'vuex';
 
 export default {
   name: "SiteHeader",
@@ -8,13 +9,16 @@ export default {
     MultiLanguage
   },
 
+    props: ["logos"],
+
+
   data() {
     return {
       telHidden: true,
       isMobile: false,
       isActive: false,
       opacity: 1,
-        lastScrollPos: 0,
+      lastScrollPos: 0
     }
   },
 
@@ -25,12 +29,23 @@ export default {
 
   },
 
+    computed:{
+
+    },
+
   mounted() {
     this.checkScreenForMobile();
   },
 
 
   methods: {
+      getFirstLogo(){
+          let image = '';
+          if(this.logos[0])
+              image = this.logos[0].image
+          return image;
+      },
+
       checkScreenForTel() {
           if (window.innerWidth < 1100)
               this.telHidden = false;
@@ -71,14 +86,14 @@ export default {
   <header v-bind:style="{ 'opacity': opacity }">
     <nav v-if="!isMobile">
       <div class="box_image">
-        <img src="/image/logo.png" alt="logo">
+        <RouterLink :to="{name: 'main'}"><img :src="getFirstLogo()" alt="logo"></RouterLink>
       </div>
       <div>
         <ul>
-          <li><RouterLink :to="{name: 'main'}">Главная</RouterLink></li>
-          <li><RouterLink :to="{name: 'gallery'}">Галарея</RouterLink></li>
-          <li><RouterLink :to="{name: 'abouts'}">О Компании</RouterLink></li>
-          <li><a href="#footer">Контакты</a></li>
+          <li><RouterLink :to="{name: 'main'}">{{ $t('main') }}</RouterLink></li>
+          <li><RouterLink :to="{name: 'gallery'}">{{ $t('gallery') }}</RouterLink></li>
+          <li><RouterLink :to="{name: 'abouts'}">{{ $t('about') }}</RouterLink></li>
+          <li><a href="#footer">{{ $t('contact') }}</a></li>
           <li v-if="telHidden"> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
           <li>
             <MultiLanguage></MultiLanguage>
@@ -97,11 +112,11 @@ export default {
     <div class="menu" v-show="isActive">
       <div class="menuwrapper">
         <ul>
-          <li><RouterLink :to="{name: 'main'}">Главная</RouterLink></li>
-            <li><RouterLink :to="{name: 'gallery'}">Галарея</RouterLink></li>
-          <li><RouterLink :to="{name: 'abouts'}">О Компании</RouterLink></li>
-          <li><a href="#footer">Контакты</a></li>
-          <li> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
+            <li><RouterLink :to="{name: 'main'}">{{ $t('main') }}</RouterLink></li>
+            <li><RouterLink :to="{name: 'gallery'}">{{ $t('gallery') }}</RouterLink></li>
+            <li><RouterLink :to="{name: 'abouts'}">{{ $t('about') }}</RouterLink></li>
+            <li><a href="#footer">{{ $t('contact') }}</a></li>
+            <li> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
           <li>
             <MultiLanguage></MultiLanguage>
           </li>
@@ -147,10 +162,10 @@ nav {
      align-items: center;
 }
 
+
 img {
-    width: 250px;
-    display: block;
-    height: 120px;
+    width: 150px;
+    height: 100px;
     box-sizing: border-box;
     transform: skew(40deg);
 }
@@ -170,7 +185,7 @@ li:last-child {
   margin-right: 0;
 }
 
-a {
+ul > li > a {
     display: block;
     text-decoration: none;
     z-index: 1;
@@ -184,7 +199,7 @@ a {
     color: white;
 }
 
-a:hover {
+ul > li > a:hover {
   outline: 3px solid #FFD700;
   color: #FFD700;
   outline-offset: -2px;
@@ -192,9 +207,7 @@ a:hover {
 }
 
 @media screen and (min-width: 2251px){
-    img{
-        width: 100px;
-    }
+
 }
 
 @media screen and (max-width: 2250px) {
@@ -204,9 +217,6 @@ a:hover {
 
 }
 
-img {
-  width: 150px;
-}
 }
 
 
@@ -218,7 +228,7 @@ img {
 }
 
 @media screen and (max-width: 1520px) {
-  a {
+  ul > li > a {
     margin-right: 30px;
   }
 }
@@ -231,11 +241,10 @@ img {
 
   img {
 
-    width: 100px;
     height: 120px;
   }
 
-  a {
+ ul > li > a {
     margin-right: 15px;
   }
 }

@@ -6,6 +6,10 @@ export default {
 
     components:{
         SiteIndex
+    },
+
+    methods:{
+
     }
 }
 </script>

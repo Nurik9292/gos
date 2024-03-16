@@ -4,21 +4,75 @@ import AboutContentRight from "./AboutContentRigth.vue";
 
 export default {
     name: "AboutContentWrapper",
-    components: {AboutContentRight, AboutContentLeft}
+    components: {AboutContentRight, AboutContentLeft},
+    props:["contents"],
+
+    computed:{
+        contentFirst(){
+            let content = [];
+            if(this.contents && this.contents[0])
+                content.push({
+                    title: this.contents[0].title,
+                    content: this.contents[0].content,
+                    image: this.contents[0].image
+                });
+
+            return content[0];
+        },
+
+        contentSecond(){
+            let content = [];
+
+            if(this.contents && this.contents[0])
+            content.push({
+                title: this.contents[1].title,
+                content: this.contents[1].content,
+                image: this.contents[1].image
+            });
+
+            return content[0];
+        },
+
+        contentThird(){
+            let content = [];
+
+            if(this.contents && this.contents[0])
+            content.push({
+                title: this.contents[2].title,
+                content: this.contents[2].content,
+                image: this.contents[2].image
+            });
+
+            return content[0];
+        },
+
+        contentFourth(){
+            let content = [];
+
+            if(this.contents && this.contents[0])
+            content.push({
+                title: this.contents[3].title,
+                content: this.contents[3].content,
+                image: this.contents[3].image
+            });
+
+            return content[0];
+        }
+    }
 }
 </script>
 
 <template>
 <section>
     <div class="heading-wrapper">
-        <h2>Biziň bölümi</h2>
+        <h2>{{ $t('our-department') }}</h2>
         <div class="line"></div>
     </div>
     <div class="content-wrapper">
-        <AboutContentLeft id="content_left"></AboutContentLeft>
-        <AboutContentRight id="content_right"></AboutContentRight>
-        <AboutContentLeft id="content_left"></AboutContentLeft>
-        <AboutContentRight id="content_right"></AboutContentRight>
+        <AboutContentLeft :about="contentFirst" id="content_left"></AboutContentLeft>
+        <AboutContentRight :about="contentSecond" id="content_right"></AboutContentRight>
+        <AboutContentLeft :about="contentThird" id="content_left"></AboutContentLeft>
+        <AboutContentRight :about="contentFourth" id="content_right"></AboutContentRight>
     </div>
 </section>
 </template>

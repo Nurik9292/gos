@@ -1,6 +1,7 @@
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import api from "../../../services/api.js";
 export default {
     name: "SiteGallery",
 
@@ -8,38 +9,30 @@ export default {
         Swiper,
         SwiperSlide,
     },
-    setup() {
-
-
-        return {
-
-
-        };
-    },
 
     data(){
         return {
             modules: [FreeMode, Navigation, Thumbs],
             thumbsSwiper: "/image/gallery/gallery1.jpg",
-            slides:[
-                "/image/gallery/gallery1.jpg",
-                "/image/gallery/gallery2.jpg",
-                "/image/gallery/gallery3.jpg",
-                "/image/gallery/gallery4.jpg",
-                "/image/gallery/gallery5.jpg",
-                "/image/gallery/gallery6.jpg",
-                "/image/gallery/gallery7.jpg",
-                "/image/gallery/gallery8.jpg",
-            ],
+            slides:[],
         }
     },
 
     computed:{
         setThumbsSwiper (swiper)  {
-            console.log(swiper)
             this.thumbsSwiper = swiper;
         }
     },
+
+    mounted(){
+        api.getGalleries()
+            .then(data => {
+                this.slides = data.data;
+                this.thumbsSwiper = dtat.data[0].image
+            })
+            .catch(error => console.error('Error fetching gallery:', error));
+
+    }
 
 }
 </script>
@@ -56,8 +49,8 @@ export default {
         :modules="modules"
         class="mySwiper2 swiper"
     >
-        <SwiperSlide v-for="image in slides">
-            <img :src="image">
+        <SwiperSlide v-for="item in slides">
+            <img :src="item.image">
         </SwiperSlide>
     </Swiper>
     <Swiper
@@ -69,8 +62,8 @@ export default {
         :modules="modules"
         class="mySwiper swiper"
     >
-        <SwiperSlide v-for="image in slides">
-            <img :src="image" />
+        <SwiperSlide v-for="item in slides">
+            <img :src="item.image" />
         </SwiperSlide>
     </Swiper>
     <div class="custom"></div>

@@ -1,4 +1,6 @@
 <script>
+import {mapGetters} from "vuex";
+
 export default {
     name: "MultiLanguage",
 
@@ -6,26 +8,28 @@ export default {
         return {
             languages: [
             {
-                code: "Ru",
-                name: "Русский",
+                code: "ru",
+                name: "Ru",
                 image: "image/local/ru.svg",
             },
             {
-                code: "En",
-                name: "English",
+                code: "en",
+                name: "En",
                 image: "image/local/en.svg",
             },
             {
                 code: "tm",
-                name: "Español",
+                name: "Tm",
                 image: "image/local/tm.svg",
             }],
         };
     },
 
+
     methods: {
 
         swapLanguages(index) {
+            this.$i18n.locale =this.languages[index].code;
             const temp = this.languages[0];
             this.languages[0] = this.languages[index];
             this.languages[index] = temp;
@@ -39,13 +43,13 @@ export default {
         <button class="lang-btn" aria-label="Выбрать язык" @click="swapLanguages(0)">
             <a href="#">
                 <img :src="languages[0].image" :alt="languages[0].name">
-                <span>{{ languages[0].code }}</span>
+                <span>{{ languages[0].name }}</span>
             </a>
         </button>
         <div class="lang-list">
-            <a v-for="(language, index) in languages.slice(1)" :key="index" href="#" @click="swapLanguages(index + 1)">
+            <a v-for="(language, index) in languages.slice(1)" :key="index" href="javascript:void(0);" @click="swapLanguages(index + 1)">
                 <img :src="language.image" :alt="language.name">
-                <span>{{ language.code }}</span>
+                <span>{{ language.name }}</span>
             </a>
         </div>
     </div>

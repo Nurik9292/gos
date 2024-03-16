@@ -8,24 +8,27 @@ export default {
         ServiceCard
     },
 
+    props:["services"],
+
     data(){
         return{
-            contents:[
-                "Вызов холодильных отходов с территории города Ашхабада",
-                "Полив и мойка улиц города Ашхабада",
-                "Механизм очистка пешеходной части города Ашхабада",
-                "Отлов бездоммных собак и кошек, сбор отходов животноводства черте города",
-                "Мониторинг работы специлизироанного транспорта, перевозящего твердые и жидкие отходы",
-                "Чистота дорого и тротуаров, подземных по направлению к бульварам и улицам",
-                "Размещение и замена мусорныз баков на мусопроводах",
-                "Зимнее время посыпаются улицы, магистрали, стоянки, дороги песком и солью, расчщается снег",
-                "Строительно-мотножные работы, проведеные ремотных работ и контроль за ходом работ",
-                "Контроль за чистотой и содержанием памятников и монументов в Ашхабаде",
-                "Дезинфекция полигонов ТБО",
-                "Вызов мусора по договору с учереждениями и предприятиями, расположенными в черте города не имеющими возможности вывозить свой мусор",
-                "Уборка листьев с улиц и тротуаров",
-                "Выращивание фруктовых содов, цвтов разной окраски и внешнего вида, превращение города в сад",
-            ]
+
+        }
+    },
+
+    computed:{
+        contents() {
+            const local = this.$i18n.locale;
+            if (this.services) {
+                const translations = {
+                    tm: service => ({ content: service.content.tm, image: service.image }),
+                    ru: service => ({ content: service.content.ru, image: service.image }),
+                    en: service => ({ content: service.content.en, image: service.image }),
+                };
+                return this.services.map(service => translations[local](service));
+            }
+
+            return '';
         }
     }
 }
@@ -34,13 +37,11 @@ export default {
 <template>
     <div class="main">
         <div class="text">
-            <h2>
-              Наши услуги
-            </h2>
+            <h2>{{ $t('our-service') }}</h2>
             <div class="line"></div>
         </div>
         <div class="service_block">
-            <ServiceCard v-for="text in contents" :text="text"></ServiceCard>
+            <ServiceCard v-for="item in contents" :text="item.content" :image="item.image"></ServiceCard>
 
         </div>
     </div>

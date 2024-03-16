@@ -2,10 +2,52 @@
 import SiteHeader from "../Layouts/SiteHeader.vue";
 import SiteFooter from "../Layouts/SiteFooter.vue";
 import AboutContentWrapper from "./parts/AboutContentWrapper.vue";
+import api from "../../../services/api.js";
 
 export default {
     name: "SiteAbout",
-    components: {AboutContentWrapper, SiteFooter, SiteHeader}
+    components: {AboutContentWrapper, SiteFooter, SiteHeader},
+
+    data(){
+        return {
+            texts: '',
+            contents: [],
+            banner: ''
+        }
+    },
+
+    computed:{
+          text(){
+              const local = this.$i18n.locale;
+
+              if (this.texts) {
+                  switch (local){
+                      case 'tm': return this.texts.tm;
+                      case 'ru': return this.texts.ru;
+                      case 'en': return this.texts.en;
+                      default: return '';
+                  }
+              }
+
+          }
+    },
+
+    mounted() {
+        api.getAbouts()
+            .then(data => {
+                console.log(data)
+                this.texts = data.data[0].text;
+                this.contents = data.data;
+            })
+            .catch(error => console.error('Error fetching abouts:', error));
+
+        api.getAboutBanner()
+            .then(data => {
+                console.log(data)
+
+            })
+            .catch(error => console.error('Error fetching about banner:', error));
+    }
 }
 </script>
 
@@ -15,14 +57,14 @@ export default {
     </div>
     <section>
         <div class="text_head">
-            <h2>Aşgabat şäher Arassalaýyş, abadanlaşdyryş birleşiginiň alyp barýan  işleri</h2>
+            <h2>{{ $t('about-main-title') }}</h2>
             <div class="line"></div>
         </div>
         <div class="text_content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa cupiditate deleniti distinctio dolores earum excepturi, incidunt itaque labore laboriosam maxime, nesciunt nihil officia perspiciatis placeat praesentium quas quis quo reiciendis reprehenderit repudiandae saepe sit sunt, totam veritatis voluptas voluptatum. A ab aut commodi dignissimos dolor eius enim error esse, facere illo laborum libero pariatur perspiciatis provident quis repellendus repudiandae rerum soluta ullam unde ut veniam, vero voluptate. Ab, accusamus, accusantium asperiores at dolor dolore doloremque dolorum est et harum minus nesciunt optio quia saepe, sapiente totam unde voluptas voluptatibus! Accusantium aspernatur cum fuga impedit magnam maiores quae quisquam rem.</p>
+        <p>{{text}}</p>
         </div>
     </section>
-    <AboutContentWrapper></AboutContentWrapper>
+    <AboutContentWrapper :contents="contents"></AboutContentWrapper>
 </template>
 
 <style scoped>
