@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Admin\Banner;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class UpdateController extends BaseController
 {
-    public function __invoke(BannerRequest $request, Banner $banner): RedirectResponse
+    public function __invoke(BannerRequest $request, Banner $banner)
     {
-        $this->service->update($request->validated(), $banner);
+
+        $data = $request->validated();
+
+        dd($data);
+
+        $this->service->update($data, $banner);
 
         return redirect()->route('banner.index');
     }

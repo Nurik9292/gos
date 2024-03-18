@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="card card-body border-0 shadow mb-4">
-        <h2 class="h5 mb-4">Обновить баннер</h2>
+        <h2 class="h5 mb-4">Обновить лого</h2>
         <form action="{{route('logo.update', $logo)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
@@ -18,7 +18,7 @@
                     <label for="formFile" class="form-label">Изображение</label>
                     <input class="form-control" name="image" type="file" id="formFile" accept="image/jpeg, image/jpg image/png" value="{{$logo->image}}">
                     @error('image')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>

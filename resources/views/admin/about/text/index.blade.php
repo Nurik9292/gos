@@ -18,14 +18,14 @@
                     <label for="tm_text" class="form-label">Текст шапки TM</label>
                     <textarea class="form-control" id="tm_text"  rows="5" name="tm_text">{{$aboutText->tm_text}}</textarea>
                     @error('tm_text')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="ru_text" class="form-label">Текст шапки RU</label>
                     <textarea class="form-control" id="ru_text"  rows="5" name="ru_text">{{$aboutText->ru_text}}</textarea>
                     @error('ru_text')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <label for="en_text" class="form-label">Текст шапки EN</label>
                         <textarea class="form-control" id="en_text"  rows="5" name="en_text">{{$aboutText->en_text}}</textarea>
                     @error('en_text')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
 

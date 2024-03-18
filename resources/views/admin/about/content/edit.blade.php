@@ -19,14 +19,14 @@
                         <label for="tm_title" class="form-label">Заголовок TM</label>
                         <input type="text" class="form-control" id="tm_title" name="tm_title" value="{{$about->tm_title}}">
                         @error('tm_title')
-                        <div class="invalid-feedback">{{ $message }}</div>
+                        <div style="color: red">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="ru_title" class="form-label">Заголовок RU</label>
                         <input type="text" class="form-control" id="ru_title" name="ru_title" value="{{$about->ru_title}}">
                         @error('ru_title')
-                        <div class="invalid-feedback">{{ $message }}</div>
+                        <div style="color: red">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <label for="en_title" class="form-label">Заголовок EN</label>
                         <input type="text" class="form-control" id="en_title" name="en_title" value="{{$about->en_title}}">
                         @error('en_title')
-                        <div class="invalid-feedback">{{ $message }}</div>
+                        <div style="color: red">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -43,14 +43,14 @@
                     <label for="tm_content" class="form-label">Контент TM</label>
                     <textarea class="form-control" name="tm_content" id="tm_content" rows="3">{{$about->tm_content}}</textarea>
                     @error('tm_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="ru_content" class="form-label">Контент RU</label>
                     <textarea class="form-control" name="ru_content" id="ru_content" rows="3">{{$about->ru_content}}</textarea>
                     @error('ru_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <label for="en_content" class="form-label">Контент EN</label>
                     <textarea class="form-control" name="en_content" id="en_content" rows="3">{{$about->en_content}}</textarea>
                     @error('en_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     <label for="formFile" class="form-label">Изображение</label>
                     <input class="form-control" name="image" type="file" id="formFile" accept="image/jpeg, image/jpg image/png" value="{{$about->image}}">
                     @error('image')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>

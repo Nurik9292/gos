@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('admins/assets/img/ugur/favicon.ico')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('admins/assets/img/ugur/favicon.ico')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admins/assets/img/ugur/favicon.ico')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('favicon.ico')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon.ico')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon.ico')}}">
     <link rel="manifest" href="{{asset('admins/assets/img/favicon/site.webmanifest')}}">
     <link rel="mask-icon" href="{{asset('admins/assets/img/favicon/safari-pinned-tab.svg')}}" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">

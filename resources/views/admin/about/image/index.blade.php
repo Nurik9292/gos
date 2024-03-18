@@ -18,7 +18,7 @@
                     <label for="formFile" class="form-label">Изображение</label>
                     <input class="form-control" name="image" type="file" id="formFile" accept="image/jpeg, image/jpg image/png" value="{{$aboutImage->image}}">
                     @error('image')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>

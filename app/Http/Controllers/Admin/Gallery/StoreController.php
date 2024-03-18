@@ -11,6 +11,8 @@ class StoreController extends BaseController
     {
         $this->service->store($request->validated());
 
+
+
         return redirect()->route('gallery.index');
     }
 }

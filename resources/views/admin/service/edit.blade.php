@@ -16,16 +16,16 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="tm_content" class="form-label">Контент TM</label>
-                     <input type="text" class="form-control" id="ru_content" name="ru_content" value="{{$service->tm_content}}">
+                     <input type="text" class="form-control" id="ru_content" name="tm_content" value="{{$service->tm_content}}">
                     @error('tm_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="ru_content" class="form-label">Контент RU</label>
                      <input type="text" class="form-control" id="ru_content" name="ru_content" value="{{$service->ru_content}}">
                     @error('ru_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -34,14 +34,14 @@
                     <label for="en_content" class="form-label">Контент EN</label>
                      <input type="text" class="form-control" id="en_content" name="en_content" value="{{$service->en_content}}">
                     @error('en_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="formFile" class="form-label">Изображение</label>
                     <input class="form-control" name="image" type="file" id="formFile" accept="image/jpeg, image/jpg image/png" value="{{$service->image}}">
                     @error('image')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>

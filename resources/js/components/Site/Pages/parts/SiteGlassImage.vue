@@ -69,7 +69,6 @@ export default {
 }
 
 h2{
-    margin-bottom: 20px;
     display: block;
     width: 650px;
     margin: 0 auto;
@@ -224,6 +223,10 @@ p{
         padding-top: 20px;
         padding-left: 20px;
     }
+
+    .line{
+        width: 100px;
+    }
 }
 
 @media screen and (max-width: 380px){
@@ -239,6 +242,16 @@ p{
 
     .image_head_image img{
         height: 80px;
+    }
+
+    h2{
+        font-size: 13px;
+        margin: 0 auto;
+        width: 250px;
+    }
+
+    .line{
+        height: 1px;
     }
 
 }

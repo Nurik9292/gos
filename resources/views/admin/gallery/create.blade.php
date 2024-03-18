@@ -17,14 +17,14 @@
                     <label for="title" class="form-label">Заголовок TM</label>
                     <input type="text" class="form-control" id="title" name="title">
                     @error('title')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="formFile" class="form-label">Изображение</label>
                     <input class="form-control" name="image" type="file" id="formFile" accept="image/jpeg, image/jpg image/png">
                     @error('image')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>

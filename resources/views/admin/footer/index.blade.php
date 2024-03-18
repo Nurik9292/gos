@@ -18,14 +18,14 @@
                     <label for="tm_content" class="form-label">Контент TM</label>
                     <textarea class="form-control" name="tm_content" id="tm_content" rows="3">{{$footer->tm_content}}</textarea>
                     @error('tm_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="ru_content" class="form-label">Контент RU</label>
                     <textarea class="form-control" name="ru_content" id="ru_content" rows="3">{{$footer->ru_content}}</textarea>
                     @error('ru_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <label for="en_content" class="form-label">Контент EN</label>
                     <textarea class="form-control" name="en_content" id="en_content" rows="3">{{$footer->en_content}}</textarea>
                     @error('en_content')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div style="color: red">{{ $message }}</div>
                     @enderror
                 </div>
             </div>

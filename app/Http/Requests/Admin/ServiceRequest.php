@@ -22,7 +22,7 @@ class ServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['required', 'image', 'max:1024', 'mimetypes:image/svg+xml', 'mimes:svg'],
+            'image' => ['required', 'image', 'max:1024', 'mimes:jpeg,jpg,png'],
             'tm_content' => ['required', 'string', 'max:132'],
             'ru_content' => ['required', 'string', 'max:132'],
             'en_content' => ['required', 'string', 'max:132'],
@@ -34,7 +34,7 @@ class ServiceRequest extends FormRequest
         return[
             'image.required' => 'Выберите изображение',
             'image.image' => 'Выберите изображение',
-            'image.mimes' => 'Выберите изображение в формате jpeg jpg png',
+            'image.mimes' => 'Выберите изображение в формате jpg jpeg png',
             'image.max' => 'Максимальный размер 1MB',
             'ru_content.required' => 'Заполните поле',
             'ru_content.max' => 'Максимальное количество символов 132',

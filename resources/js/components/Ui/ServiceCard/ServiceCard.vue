@@ -2,13 +2,16 @@
 export default {
     name: "ServiceCard",
 
-    props:["text"]
+    props:[
+        "text",
+        "image"
+    ]
 }
 </script>
 
 <template>
     <div class="service-card">
-        <img src="/image/service.jpg" alt="Not found">
+            <img :src="image" alt="Not found">
         <p>{{text}}</p>
     </div>
 </template>
@@ -23,11 +26,13 @@ export default {
         cursor: pointer;
     }
 
-    img{
-        width: 40%;
-        height: 100%;
-        margin-right: 10px;
-    }
+
+img{
+    width: 46%;
+    height: 100%;
+    margin-right: 10px;
+}
+
     p{
         font: 0.8vw/0.8vw Montserrat;
         line-height: 1.2;

@@ -2,20 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-if(strpos(\Illuminate\Support\Facades\URL::current(), 'admin')
-    || strpos(\Illuminate\Support\Facades\URL::current(), 'login')
-    || strpos(\Illuminate\Support\Facades\URL::current(), 'logout')) {
+
+
+//if(strpos(\Illuminate\Support\Facades\URL::current(), 'admin')
+//    || strpos(\Illuminate\Support\Facades\URL::current(), 'login')
+//    || strpos(\Illuminate\Support\Facades\URL::current(), 'logout')
+//) {
 
     Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -78,9 +71,9 @@ if(strpos(\Illuminate\Support\Facades\URL::current(), 'admin')
     });
 
     \Illuminate\Support\Facades\Auth::routes();
-}else {
-
-    Route::get("/{page}", \App\Http\Controllers\Site\MainController::class)->where("page", ".*");
-}
+//}else {
+//    Route::get("/{page}", \App\Http\Controllers\Site\MainController::class)->where("page", ".*");
+    Route::get("/{page}", \App\Http\Controllers\Site\MainController::class)->where("page", "^(?!admin$|login$|logout$).*");
+//}
 
 
