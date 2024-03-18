@@ -24,7 +24,7 @@ export default {
     }
 
     img{
-        width: 45%;
+        width: 40%;
         height: 100%;
         margin-right: 10px;
     }

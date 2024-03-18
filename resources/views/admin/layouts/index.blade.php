@@ -21,7 +21,13 @@
     <link type="text/css" href="{{asset('admins/css/volt.css')}}" rel="stylesheet">
     <link type="text/css" href="{{asset('admins/css/custom.css')}}" rel="stylesheet">
     <link type="text/css" href="{{asset('admins/css/dataTable.css')}}" rel="stylesheet">
-{{--    <link type="text/css" href="{{asset('admins/css/multi-select-tag.min.css')}}" rel="stylesheet">--}}
+
+
+    <script src="{{asset('admins/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('admins/vendor/summernote-0.8.18-dist/popper.min.js')}}"></script>
+    <script src="{{asset('admins/vendor/summernote-0.8.18-dist/boostrap.min.js')}}"></script>
+    <link href="{{asset('admins/vendor/summernote-0.8.18-dist/summernote-bs4.min.css')}}" rel="stylesheet">
+    <script src="{{asset('admins/vendor/summernote-0.8.18-dist/summernote-bs4.min.js')}}"></script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -34,9 +40,13 @@
 </body>
 </html>
 
+
+
 <!-- Core -->
 <script src="{{asset('admins/vendor/@popperjs/core/dist/umd/popper.min.js')}}"></script>
 <script src="{{asset('admins/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+
+
 
 <!-- Vendor JS -->
 <script src="{{asset('admins/vendor/onscreen/dist/on-screen.umd.min.js')}}"></script>
@@ -70,4 +80,3 @@
 
 <!-- Volt JS -->
 <script src="{{asset('admins/assets/js/volt.js')}}"></script>
-{{--<script src="{{asset('admins/js/multi-select-tag.min.js')}}"></script>--}}

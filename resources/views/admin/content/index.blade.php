@@ -41,14 +41,14 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="tm_content" class="form-label">Контент TM</label>
-                    <textarea class="form-control" name="tm_content" id="tm_content" rows="3">{{$content->tm_content}}</textarea>
+                    <textarea class="form-control" name="tm_content" id="tm_content" rows="3" >{{$content->tm_content}}</textarea>
                     @error('tm_content')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="ru_content" class="form-label">Контент RU</label>
-                    <textarea class="form-control" name="ru_content" id="ru_content" rows="3">{{$content->ru_content}}</textarea>
+                    <textarea class="form-control" name="ru_content" id="ru_content" rows="3" >{{$content->ru_content}}</textarea>
                     @error('ru_content')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -77,4 +77,22 @@
             </div>
         </form>
     </div>
+
+    <script>
+        $('#tm_content').summernote({
+            placeholder: 'Введите текст',
+            tabsize: 2,
+            height: 100
+        });
+        $('#ru_content').summernote({
+            placeholder: 'Введите текст',
+            tabsize: 2,
+            height: 100
+        });
+        $('#en_content').summernote({
+            placeholder: 'Введите текст',
+            tabsize: 2,
+            height: 100
+        });
+    </script>
 @endsection

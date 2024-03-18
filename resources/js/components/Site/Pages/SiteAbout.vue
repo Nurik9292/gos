@@ -70,7 +70,7 @@ export default {
 <style scoped>
 .banner {
     width: 100%;
-    height: 650px;
+    height: 870px;
     background-color: #333;
     margin-top: 40px;
     color: #fff;
