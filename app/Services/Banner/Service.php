@@ -21,7 +21,9 @@ class Service
         if(!empty($banner->image))
             Storage::disk('public')->delete($banner->image);
 
+        if(isset($data['image']))
         $data['image'] = $this->image->resize($data['image'], 'banner');
+
 
         $banner->update($data);
     }

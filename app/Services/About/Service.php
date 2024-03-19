@@ -21,6 +21,7 @@ class Service
         if(!empty($about->image))
             Storage::disk('public')->delete($about->image);
 
+        if(isset($data['image']))
         $data['image'] = $this->image->resize($data['image'], 'about');
 
         $about->update($data);
