@@ -195,7 +195,7 @@ section{
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid black;
-    animation: cursor 0.75s step-end infinite, printed_text 3s steps(29) infinite, 0.5s infinite alternate;
+    animation: cursor 0.75s step-end infinite, printed_text 4s steps(29) infinite, 0.5s infinite alternate;
 
 }
 

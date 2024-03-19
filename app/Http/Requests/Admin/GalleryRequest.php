@@ -22,7 +22,7 @@ class GalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['required', 'image', 'max:1024', 'mimes:jpeg,jpg,png'],
+            'image' => ['required', 'image', 'max:2048', 'mimes:jpeg,jpg,png'],
             'title' => ['required', 'string', 'max:25'],
         ];
     }
@@ -33,7 +33,7 @@ class GalleryRequest extends FormRequest
             'image.required' => 'Выберите изображение',
             'image.image' => 'Выберите изображение',
             'image.mimes' => 'Выберите изображение в формате jpeg jpg png',
-            'image.max' => 'Максимальный размер 1MB',
+            'image.max' => 'Максимальный размер 2MB',
             'title.max' => 'Максимальное количество символов 25',
             'title.required' => 'Заполните поле',
         ];

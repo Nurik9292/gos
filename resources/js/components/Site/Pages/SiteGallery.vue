@@ -13,15 +13,13 @@ export default {
     data(){
         return {
             modules: [FreeMode, Navigation, Thumbs],
-            thumbsSwiper: "/image/gallery/gallery1.jpg",
+            thumbsSwiper: "",
             slides:[],
         }
     },
 
     computed:{
-        setThumbsSwiper (swiper)  {
-            this.thumbsSwiper = swiper;
-        }
+
     },
 
     mounted(){
@@ -32,6 +30,12 @@ export default {
             })
             .catch(error => console.error('Error fetching gallery:', error));
 
+    },
+
+    methods:{
+        setThumbsSwiper (swiper)  {
+            this.thumbsSwiper = swiper;
+        }
     }
 
 }
@@ -41,13 +45,13 @@ export default {
     <Swiper
         :style="{
       '--swiper-navigation-color': '#fff',
-      '--swiper-pagination-color': '#fff',
+
     }"
         :spaceBetween="10"
         :navigation="true"
         :thumbs="{ swiper: thumbsSwiper }"
         :modules="modules"
-        class="mySwiper2 swiper"
+        class="mySwiper2"
     >
         <SwiperSlide v-for="item in slides">
             <img :src="item.image">
@@ -60,10 +64,10 @@ export default {
         :freeMode="true"
         :watchSlidesProgress="true"
         :modules="modules"
-        class="mySwiper swiper"
+        class="mySwiper"
     >
         <SwiperSlide v-for="item in slides">
-            <img :src="item.image" />
+            <img :src="item.image" class="myImage"/>
         </SwiperSlide>
     </Swiper>
     <div class="custom"></div>
@@ -79,7 +83,7 @@ export default {
     text-align: center;
     font-size: 18px;
     background: #fff;
-
+    height: auto;
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
@@ -89,7 +93,7 @@ export default {
 .swiper-slide img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -116,16 +120,16 @@ body {
 }
 
 .mySwiper {
-    height: 20%;
+
     box-sizing: border-box;
     padding: 10px 0;
 }
 
 .mySwiper .swiper-slide {
     width: 25%;
-    height: 100%;
-    opacity: 0.4;
+    height: 300px;
 }
+
 
 .mySwiper .swiper-slide-thumb-active {
     opacity: 1;
@@ -146,5 +150,10 @@ body {
     .custom{
         margin-bottom: 150px;
     }
+
+    .mySwiper .swiper-slide {
+        height: 100%;
+    }
+
 }
 </style>

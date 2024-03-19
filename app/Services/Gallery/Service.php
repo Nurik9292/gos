@@ -20,25 +20,10 @@ class Service
     public function store(array $data): void
     {
 
-        $data['image'] = $this->saveImage($data['image']);
+        $data['image'] = $this->image->resize($data['image'], "gallery");
 
         Gallery::create($data);
     }
 
-    private function saveImage(UploadedFile $image): string
-    {
-        $originalImageName = $image->getClientOriginalName();
-        $resizedImageName = 'images/'. 'gallery' . '/' . $this->generateRandomName() . '-' . $originalImageName;
-        Storage::disk('public')->put($resizedImageName, $image);
-        return '/storage/' . $resizedImageName;
-    }
 
-    private function generateRandomName(int $length = 10): string {
-        $characters = 'abcdefghijklmnopqrstuvwxyz';
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, strlen($characters) - 1)];
-        }
-        return $randomString;
-    }
 }

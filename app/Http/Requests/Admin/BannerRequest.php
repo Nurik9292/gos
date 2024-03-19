@@ -26,9 +26,9 @@ class BannerRequest extends FormRequest
             'tm_title' => ['nullable', 'string', 'max:45'],
             'ru_title' => ['nullable', 'string', 'max:45'],
             'en_title' => ['nullable', 'string', 'max:45'],
-            'tm_content' => ['nullable', 'string', 'max:358'],
-            'ru_content' => ['nullable', 'string', 'max:358'],
-            'en_content' => ['nullable', 'string', 'max:358'],
+            'tm_content' => ['nullable', 'string', 'max:600'],
+            'ru_content' => ['nullable', 'string', 'max:600'],
+            'en_content' => ['nullable', 'string', 'max:600'],
         ];
     }
 
@@ -39,9 +39,9 @@ class BannerRequest extends FormRequest
             'image.image' => 'Выберите изображение',
             'image.mimes' => 'Выберите изображение в формате jpeg jpg png',
             'image.max' => 'Максимальный размер 1MB',
-            'tm_content.max' => 'Превышено максимальное количество символов 358',
-            'ru_content.max' => 'Превышено максимальное количество символов 358',
-            'en_content.max' => 'Превышено максимальное количество символов 358',
+            'tm_content.max' => 'Превышено максимальное количество символов 600',
+            'ru_content.max' => 'Превышено максимальное количество символов 600',
+            'en_content.max' => 'Превышено максимальное количество символов 600',
             'tm_title.max' => 'Превышено максимальное количество символов 45',
             'ru_title.max' => 'Превышено максимальное количество символов 45',
             'en_title.max' => 'Превышено максимальное количество символов 45',

@@ -92,8 +92,8 @@ footer {
 
 
 img{
-    width: 5em;
-    height: 5em;
+    width: 200px;
+    height: 100px;
 }
 
 .footer_feedback{

@@ -66,7 +66,7 @@ use Illuminate\Support\Facades\Route;
             Route::get('/galleries', \App\Http\Controllers\Admin\Gallery\IndexController::class)->name('index');
             Route::post('/galleries', \App\Http\Controllers\Admin\Gallery\StoreController::class)->name('store');
             Route::get('/galleries/create', \App\Http\Controllers\Admin\Gallery\CreateController::class)->name('create');
-            Route::delete('/galleries', \App\Http\Controllers\Admin\Gallery\DeleteController::class)->name('destroy');
+            Route::delete('/galleries/{gallery}', \App\Http\Controllers\Admin\Gallery\DeleteController::class)->name('destroy');
         });
     });
 

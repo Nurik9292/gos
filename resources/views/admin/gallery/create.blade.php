@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="mt-3">
-                <button class="btn btn-info mt-2 animate-up-2" type="submit">Обновить</button>
+                <button class="btn btn-info mt-2 animate-up-2" type="submit">Добавить</button>
             </div>
         </form>
     </div>

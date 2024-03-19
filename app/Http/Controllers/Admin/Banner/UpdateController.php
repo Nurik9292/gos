@@ -13,8 +13,6 @@ class UpdateController extends BaseController
 
         $data = $request->validated();
 
-        dd($data);
-
         $this->service->update($data, $banner);
 
         return redirect()->route('banner.index');

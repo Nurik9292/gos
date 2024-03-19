@@ -22,7 +22,7 @@ class CardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['required', 'image', 'max:1024', 'mimetypes:image/svg+xml', 'mimes:svg'],
+            'image' => ['required', 'image', 'max:1024', 'mimes:jpeg, jpg, png'],
             'tm_content' => ['required', 'string', 'max:120'],
             'ru_content' => ['required', 'string', 'max:120'],
             'en_content' => ['required', 'string', 'max:120'],
@@ -34,8 +34,7 @@ class CardRequest extends FormRequest
         return[
             'image.required' => 'Выберите изображение',
             'image.image' => 'Выберите изображение',
-            'image.mimes' => 'Выберите изображение в формате svg',
-            'image.mimetypes' => 'Выберите изображение в формате svg',
+            'image.mimes' => 'Выберите изображение в формате jpeg jpg png',
             'image.max' => 'Максимальный размер 1MB',
             'ru_content.required' => 'Заполните поле',
             'ru_content.max' => 'Максимальное количество символов 120',

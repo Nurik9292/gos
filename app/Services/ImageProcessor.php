@@ -11,11 +11,14 @@ class ImageProcessor
     public  function resize(UploadedFile $image, string $path): string
     {
         $originalImageName = $image->getClientOriginalName();
-        $resizedImage = Image::make($image);
-        $newImage = $resizedImage->fit((int)($resizedImage->width() * 0.8), (int)($resizedImage->height() * 0.8))->encode('jpg', 80);;
-        $resizedImageName = 'images/'.  $path . '/' . $this->generateRandomName() . '-' . $originalImageName;
-        Storage::disk('public')->put($resizedImageName, $newImage);
-        return '/storage/' . $resizedImageName;
+//        $resizedImage = Image::make($image);
+//        $newImage = $resizedImage->fit((int)($resizedImage->width() * 0.8), (int)($resizedImage->height() * 0.8))->encode('jpg', 80);;
+//        $resizedImageName = 'images/'.  $path . '/' . $this->generateRandomName() . '-' . $originalImageName;
+        $resizedImageName = 'images/'.  $path ;
+
+        $path = Storage::disk('public')->put($resizedImageName, $image);
+
+        return '/storage/' . $path;
     }
 
     private function generateRandomName(int $length = 10): string {

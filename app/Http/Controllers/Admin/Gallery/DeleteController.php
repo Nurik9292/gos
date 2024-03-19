@@ -12,8 +12,11 @@ class DeleteController extends Controller
 {
     public function __invoke(Gallery $gallery):RedirectResponse
     {
+
         Storage::disk('public')->delete(public_path($gallery->image));
 
         $gallery->delete();
+
+        return redirect()->route("gallery.index");
     }
 }

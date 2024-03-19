@@ -40,7 +40,7 @@
                             <p class="mt-2">{{$galleries[$i - 1]->title}}</p>
                         </td>
                         <td>
-                            <form action="{{route('gallery.destroy', $galleries[$i - 1]->id)}}" method="POST" >
+                            <form action="{{route('gallery.destroy', $galleries[$i - 1])}}" method="POST" >
                                @csrf
                                 @method("DELETE")
                                 <button class="btn btn-sm btn-outline-danger svg" type="submit" style="margin-left: 2px">
