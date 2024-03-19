@@ -22,10 +22,10 @@ class AboutRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['required', 'image', 'max:1024', 'mimes:jpeg,jpg,png'],
-            'tm_content' => ['nullable', 'string', 'max:358'],
-            'ru_content' => ['nullable', 'string', 'max:358'],
-            'en_content' => ['nullable', 'string', 'max:358'],
+            'image' => ['nullable', 'image', 'max:1024', 'mimes:jpeg,jpg,png'],
+            'tm_content' => ['nullable', 'string', 'max:800'],
+            'ru_content' => ['nullable', 'string', 'max:800'],
+            'en_content' => ['nullable', 'string', 'max:800'],
             'tm_title' => ['nullable', 'string', 'max:80'],
             'ru_title' => ['nullable', 'string', 'max:80'],
             'en_title' => ['nullable', 'string', 'max:80'],

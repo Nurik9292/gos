@@ -22,10 +22,10 @@ class BannerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['required', 'image', 'max:2048', 'mimes:jpeg,jpg,png'],
-            'tm_title' => ['nullable', 'string', 'max:45'],
-            'ru_title' => ['nullable', 'string', 'max:45'],
-            'en_title' => ['nullable', 'string', 'max:45'],
+            'image' => ['nullable', 'image', 'max:2048', 'mimes:jpeg,jpg,png'],
+            'tm_title' => ['nullable', 'string', 'max:70'],
+            'ru_title' => ['nullable', 'string', 'max:70'],
+            'en_title' => ['nullable', 'string', 'max:70'],
             'tm_content' => ['nullable', 'string', 'max:600'],
             'ru_content' => ['nullable', 'string', 'max:600'],
             'en_content' => ['nullable', 'string', 'max:600'],
@@ -42,9 +42,9 @@ class BannerRequest extends FormRequest
             'tm_content.max' => 'Превышено максимальное количество символов 600',
             'ru_content.max' => 'Превышено максимальное количество символов 600',
             'en_content.max' => 'Превышено максимальное количество символов 600',
-            'tm_title.max' => 'Превышено максимальное количество символов 45',
-            'ru_title.max' => 'Превышено максимальное количество символов 45',
-            'en_title.max' => 'Превышено максимальное количество символов 45',
+            'tm_title.max' => 'Превышено максимальное количество символов 70',
+            'ru_title.max' => 'Превышено максимальное количество символов 70',
+            'en_title.max' => 'Превышено максимальное количество символов 70',
         ];
     }
 }

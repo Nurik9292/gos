@@ -22,7 +22,7 @@ class CardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['required', 'image', 'max:1024', 'mimes:jpeg, jpg, png'],
+            'image' => ['required', 'image', 'max:1024', 'mimes:jpeg,jpg,png'],
             'tm_content' => ['required', 'string', 'max:120'],
             'ru_content' => ['required', 'string', 'max:120'],
             'en_content' => ['required', 'string', 'max:120'],
