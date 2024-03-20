@@ -48,7 +48,7 @@ export default {
         </div>
         <div class="content">
             <h1>{{title}}</h1>
-            <p>{{content}}</p>
+            <p v-html="content"></p>
         </div>
     </div>
 </template>

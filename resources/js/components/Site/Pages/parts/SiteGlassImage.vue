@@ -104,12 +104,14 @@ h2{
 .image_head_image{
     height: 350px;
     width: 50%;
+
 }
 
 
 .image_head_image img{
-    width: 100%;
     height: 350px;
+    object-fit: cover;
+    width: 100%;
 }
 
 p{

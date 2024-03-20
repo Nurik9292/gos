@@ -42,38 +42,40 @@ export default {
 </script>
 
 <template>
-    <Swiper
-        :style="{
+        <Swiper
+            :style="{
       '--swiper-navigation-color': '#fff',
 
     }"
-        :spaceBetween="10"
-        :navigation="true"
-        :thumbs="{ swiper: thumbsSwiper }"
-        :modules="modules"
-        class="mySwiper2"
-    >
-        <SwiperSlide v-for="item in slides">
-            <img :src="item.image">
-        </SwiperSlide>
-    </Swiper>
-    <Swiper
-        @swiper="setThumbsSwiper"
-        :spaceBetween="10"
-        :slidesPerView="4"
-        :freeMode="true"
-        :watchSlidesProgress="true"
-        :modules="modules"
-        class="mySwiper"
-    >
-        <SwiperSlide v-for="item in slides">
-            <img :src="item.image" class="myImage"/>
-        </SwiperSlide>
-    </Swiper>
+            :spaceBetween="10"
+            :navigation="true"
+            :thumbs="{ swiper: thumbsSwiper }"
+            :modules="modules"
+            class="mySwiper2"
+        >
+            <SwiperSlide v-for="item in slides">
+                <img :src="item.image">
+            </SwiperSlide>
+        </Swiper>
+        <Swiper
+            @swiper="setThumbsSwiper"
+            :spaceBetween="10"
+            :slidesPerView="4"
+            :freeMode="true"
+            :watchSlidesProgress="true"
+            :modules="modules"
+            class="mySwiper"
+        >
+            <SwiperSlide v-for="item in slides">
+                <img :src="item.image" class="myImage"/>
+            </SwiperSlide>
+        </Swiper>
     <div class="custom"></div>
 </template>
 
 <style scoped>
+
+
 .swiper {
     width: 100%;
     height: 100%;
@@ -83,7 +85,7 @@ export default {
     text-align: center;
     font-size: 18px;
     background: #fff;
-    height: auto;
+    height: 800px;
     /* Center slide text vertically */
     display: flex;
     justify-content: center;

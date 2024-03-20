@@ -92,8 +92,9 @@ footer {
 
 
 img{
-    width: 200px;
+    width: 150px;
     height: 100px;
+    box-sizing: border-box;
 }
 
 .footer_feedback{

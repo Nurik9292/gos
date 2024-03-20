@@ -195,7 +195,7 @@ section{
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid black;
-    animation: cursor 0.75s step-end infinite, printed_text 4s steps(29) infinite, 0.5s infinite alternate;
+    animation: cursor 0.75s step-end infinite, printed_text 4s steps(29) 3s infinite, 0.5s infinite alternate;
 
 }
 
@@ -214,8 +214,14 @@ section{
 }
 
 @keyframes printed_text {
-    from {
+    0% {
         width: 0;
+    }
+    80% {
+        width: 31ch;
+    }
+    100% {
+        width: 31ch;
     }
 }
 
