@@ -10,7 +10,7 @@
     </div>
     <div class="card card-body border-0 shadow mb-4">
         <h2 class="h5 mb-4">Обновить footer</h2>
-        <form action="{{route('footer.update', $footer)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('footer-text.update', $footer)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <div class="row">

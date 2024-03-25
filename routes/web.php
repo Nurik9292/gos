@@ -4,12 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-//if(strpos(\Illuminate\Support\Facades\URL::current(), 'admin')
-//    || strpos(\Illuminate\Support\Facades\URL::current(), 'login')
-//    || strpos(\Illuminate\Support\Facades\URL::current(), 'logout')
-//) {
-
     Route::prefix('admin')->middleware('auth')->group(function () {
 
         Route::name('logo.')->group(function () {
@@ -41,9 +35,15 @@ use Illuminate\Support\Facades\Route;
             Route::patch('/contents/{content}', \App\Http\Controllers\Admin\Content\UpdateController::class)->name('update');
         });
 
-        Route::name('footer.')->group(function () {
-            Route::get('/footers', \App\Http\Controllers\Admin\Footer\IndexController::class)->name('index');
-            Route::patch('/footers/{footer}', \App\Http\Controllers\Admin\Footer\UpdateController::class)->name('update');
+        Route::name('footer-text.')->group(function () {
+            Route::get('/footers', \App\Http\Controllers\Admin\Footer\Text\IndexController::class)->name('index');
+            Route::patch('/footers/{footer}', \App\Http\Controllers\Admin\Footer\Text\UpdateController::class)->name('update');
+        });
+
+
+        Route::name("footer-contact.")->group(function () {
+            Route::get('/footer-contacts', \App\Http\Controllers\Admin\Footer\Contact\IndexController::class)->name("index");
+            Route::patch('/footer-contacts/{footerContact}', \App\Http\Controllers\Admin\Footer\Contact\UpdateController::class)->name('update');
         });
 
         Route::name('about-text.')->group(function () {
@@ -71,9 +71,7 @@ use Illuminate\Support\Facades\Route;
     });
 
     \Illuminate\Support\Facades\Auth::routes();
-//}else {
-//    Route::get("/{page}", \App\Http\Controllers\Site\MainController::class)->where("page", ".*");
+
     Route::get("/{page}", \App\Http\Controllers\Site\MainController::class)->where("page", "^(?!admin$|login$|logout$).*");
-//}
 
 

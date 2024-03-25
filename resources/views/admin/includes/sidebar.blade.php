@@ -114,16 +114,40 @@
                     <span class="sidebar-text">Галлерея</span>
                 </a>
             </li>
-            <li class="nav-item @if($page == 'footer') active @endif">
-                <a href="{{route('footer.index')}}" class="nav-link">
+            {{--   New footer         --}}
+            <li class="nav-item">
+                    <span
+                        class="nav-link  collapsed d-flex justify-content-between align-items-center"
+                        data-bs-toggle="collapse" data-bs-target="#submenu-footer">
+                    <span>
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-15a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 4.5v15a2.25 2.25 0 0 0 2.25 2.25Z"></path>
-                        </svg>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+                            </svg>
                         </span>
-                    <span class="sidebar-text">Footer</span>
-                </a>
+                        <span class="sidebar-text">Footer</span>
+                    </span>
+                        <span class="link-arrow">
+                            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        </span>
+                    </span>
+                <div class="multi-level collapse"
+                     role="list" id="submenu-footer" aria-expanded="false">
+                    <ul class="flex-column nav">
+                        <li class="nav-item @if($page == 'footer-text') active @endif">
+                            <a class="nav-link" href="{{route('footer-text.index')}}">
+                                <span class="sidebar-text">Текст</span>
+                            </a>
+                        </li>
+                        <li class="nav-item @if($page == 'footer-contact') active @endif">
+                            <a class="nav-link" href="{{route('footer-contact.index')}}">
+                                <span class="sidebar-text">Конент</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
+            {{--    End new footer        --}}
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
         </ul>
     </div>

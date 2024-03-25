@@ -23,12 +23,12 @@ class BannerRequest extends FormRequest
     {
         return [
             'image' => ['nullable', 'image', 'max:2048', 'mimes:jpeg,jpg,png'],
-            'tm_title' => ['nullable', 'string', 'max:70'],
-            'ru_title' => ['nullable', 'string', 'max:70'],
-            'en_title' => ['nullable', 'string', 'max:70'],
-            'tm_content' => ['nullable', 'string', 'max:600'],
-            'ru_content' => ['nullable', 'string', 'max:600'],
-            'en_content' => ['nullable', 'string', 'max:600'],
+            'tm_title' => ['nullable', 'string', 'max:200'],
+            'ru_title' => ['nullable', 'string', 'max:200'],
+            'en_title' => ['nullable', 'string', 'max:200'],
+            'tm_content' => ['nullable', 'string', 'max:1500'],
+            'ru_content' => ['nullable', 'string', 'max:1500'],
+            'en_content' => ['nullable', 'string', 'max:1500'],
         ];
     }
 
@@ -39,12 +39,12 @@ class BannerRequest extends FormRequest
             'image.image' => 'Выберите изображение',
             'image.mimes' => 'Выберите изображение в формате jpeg jpg png',
             'image.max' => 'Максимальный размер 1MB',
-            'tm_content.max' => 'Превышено максимальное количество символов 600',
-            'ru_content.max' => 'Превышено максимальное количество символов 600',
-            'en_content.max' => 'Превышено максимальное количество символов 600',
-            'tm_title.max' => 'Превышено максимальное количество символов 70',
-            'ru_title.max' => 'Превышено максимальное количество символов 70',
-            'en_title.max' => 'Превышено максимальное количество символов 70',
+            'tm_content.max' => 'Превышено максимальное количество символов 1500',
+            'ru_content.max' => 'Превышено максимальное количество символов 1500',
+            'en_content.max' => 'Превышено максимальное количество символов 1500',
+            'tm_title.max' => 'Превышено максимальное количество символов 200',
+            'ru_title.max' => 'Превышено максимальное количество символов 200',
+            'en_title.max' => 'Превышено максимальное количество символов 200',
         ];
     }
 }

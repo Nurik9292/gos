@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Footer;
+namespace App\Http\Controllers\Admin\Footer\Text;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\FooterRequest;
@@ -12,6 +12,6 @@ class UpdateController extends Controller
     {
         $footer->update($request->validated());
 
-        return redirect()->route('footer.index');
+        return redirect()->route('footer-text.index');
     }
 }

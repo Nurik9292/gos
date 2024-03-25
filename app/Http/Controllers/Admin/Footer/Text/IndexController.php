@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Footer;
+namespace App\Http\Controllers\Admin\Footer\Text;
 
 use App\Http\Controllers\Controller;
 use App\Models\Footer;
@@ -10,10 +10,10 @@ class IndexController extends Controller
 {
     public function __invoke(): View
     {
-        $page = 'footer';
+        $page = 'footer-text';
 
         $footer = Footer::all()->first();
 
-        return view('admin.footer.index', compact('page', 'footer'));
+        return view('admin.footer.text.index', compact('page', 'footer'));
     }
 }

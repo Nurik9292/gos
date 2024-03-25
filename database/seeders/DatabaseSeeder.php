@@ -10,6 +10,7 @@ use App\Models\Banner;
 use App\Models\Card;
 use App\Models\Content;
 use App\Models\Footer;
+use App\Models\FooterContent;
 use App\Models\Gallery;
 use App\Models\Logo;
 use App\Models\Service;
@@ -295,6 +296,17 @@ class DatabaseSeeder extends Seeder
 
         AboutImage::factory()->create([
             'image' => '/image/5.jpg'
+        ]);
+
+        FooterContent::factory()->create([
+            'tel' => '+99361223344',
+            'email' => 'example@gmial.com',
+            'address_tm' => 'şaher Aşgabad',
+            'address_ru' => 'город Ашгабад',
+            'address_en' => 'Ashgabad city',
+            'work_tm' => '8:00 - 23:00 br-ot',
+            'work_ru' => '8:00 - 23:00 пн-вс',
+            'work_en' => '8:00 - 23:00 mn-sn',
         ]);
     }
 }

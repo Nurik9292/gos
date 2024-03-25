@@ -55,6 +55,15 @@ export default {
             });
     },
 
+    getFooterContacts() {
+        return axios.get('/api/footer-contacts')
+            .then(response => response.data)
+            .catch(error => {
+                console.error('Error fetching footer contacts:', error);
+                throw error
+            });
+    },
+
     getGalleries() {
         return axios.get('/api/galleries')
             .then(response => response.data)

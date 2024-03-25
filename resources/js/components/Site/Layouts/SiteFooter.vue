@@ -1,6 +1,16 @@
 <script>
+import api from "../../../services/api.js";
 export default {
     name: "SiteFooter",
+
+    data(){
+        return{
+            address:[],
+            work: [],
+            tel: '',
+            email: ''
+        }
+    },
 
     props: ["logo", "footer"],
 
@@ -10,7 +20,47 @@ export default {
             if(this.footer)
                 content = this.footer.content.ru;
             return content;
-        }
+        },
+
+        getAddress(){
+            const local = this.$i18n.locale;
+            if(this.address)
+                switch (local) {
+                    case 'tm':
+                        return this.address.tm;
+                    case 'ru':
+                        return this.address.ru;
+                    case 'en':
+                        return this.address.en;
+                    default:
+                        return '';
+                }
+        },
+
+        getWork(){
+            const local = this.$i18n.locale;
+            if(this.work)
+                switch (local) {
+                    case 'tm':
+                        return this.work.tm;
+                    case 'ru':
+                        return this.work.ru;
+                    case 'en':
+                        return this.work.en;
+                    default:
+                        return '';
+                }
+        },
+    },
+
+    mounted() {
+        api.getFooterContacts().then(res => {
+            console.log(res.data[0])
+            this.address = res.data[0].address;
+            this.work = res.data[0].work;
+            this.tel = res.data[0].tel;
+            this.email = res.data[0].email;
+        })
     }
 }
 </script>
@@ -30,16 +80,16 @@ export default {
                             <span>+99361112233</span>
                         </li>
                         <li>
-                            <p>{{ $t('main') }}:</p>
+                            <p>{{ $t('email') }}:</p>
                             <span>example@gmail.com</span>
                         </li>
                         <li>
                             <p>{{ $t('address') }}:</p>
-                            <span>Город Ашхабад</span>
+                            <span>{{getAddress}}</span>
                         </li>
                         <li>
                             <p>{{ $t('work-time') }}:</p>
-                            <span>8:00 - 23:00 пн-вс</span>
+                            <span>{{getWork}}</span>
                         </li>
                     </ul>
                 </div>
@@ -69,7 +119,7 @@ export default {
 <style scoped>
 
 footer {
-    background-color: #14d6c6;
+    background-color: #01ddb9;
     height: auto;
     color: black;
     padding: 20px 0;

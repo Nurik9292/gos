@@ -10,7 +10,8 @@ export default {
         "colorIcon",
         "colorFon",
         "color",
-        "marginTop"
+        "marginTop",
+        "colorText"
     ],
 
     computed:{
@@ -42,7 +43,7 @@ export default {
         <div class="card_image" :style="{background: colorIcon, color: color}">
             <img class="img-svg" :src="image">
         </div>
-        <div class="card_text">
+        <div class="card_text" :style="{color: colorText}">
             {{content}}
         </div>
         <div class="pop" :style="{background: colorIcon}">

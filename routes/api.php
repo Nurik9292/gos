@@ -20,5 +20,5 @@ Route::name('api.')->group(function (){
     Route::get('/galleries', \App\Http\Controllers\Api\GalleryController::class)->name('gallery');
     Route::get('/galleries-last', \App\Http\Controllers\Api\GalleryLastImageController::class)->name('gallery-last');
     Route::get('/footers', \App\Http\Controllers\Api\FooterController::class)->name('footer');
-
+    Route::get('/footer-contacts', \App\Http\Controllers\Api\FooterContactController::class)->name('footer-contact');
 });

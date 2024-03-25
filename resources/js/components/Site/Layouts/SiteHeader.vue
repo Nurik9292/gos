@@ -93,18 +93,17 @@ export default {
           <li><RouterLink :to="{name: 'main'}">{{ $t('main') }}</RouterLink></li>
           <li><RouterLink :to="{name: 'gallery'}">{{ $t('gallery') }}</RouterLink></li>
           <li><RouterLink :to="{name: 'abouts'}">{{ $t('about') }}</RouterLink></li>
-          <li><a href="#footer">{{ $t('contact') }}</a></li>
+          <li><a id="tel" href="#footer">{{ $t('contact') }}</a></li>
           <li v-if="telHidden"> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
-          <li>
-            <MultiLanguage></MultiLanguage>
-          </li>
+          <li><MultiLanguage></MultiLanguage></li>
         </ul>
+
       </div>
     </nav>
 
     <nav v-if="isMobile">
       <div class="box_image">
-        <img src="/image/logo.png" alt="logo">
+        <img :src="getFirstLogo()" alt="logo">
       </div>
       <div class="hamburger" :class="{ active: isActive }" @click="toggleHamburger">
       <span class="patties" :class="{ active: isActive }"></span>
@@ -116,10 +115,10 @@ export default {
             <li><RouterLink :to="{name: 'gallery'}">{{ $t('gallery') }}</RouterLink></li>
             <li><RouterLink :to="{name: 'abouts'}">{{ $t('about') }}</RouterLink></li>
             <li><a href="#footer">{{ $t('contact') }}</a></li>
-            <li> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
-          <li>
-            <MultiLanguage></MultiLanguage>
-          </li>
+            <li> <a id="tel" href="tel:+79998887766">+993 61 11-11-66</a></li>
+            <li>
+                <MultiLanguage></MultiLanguage>
+            </li>
         </ul>
       </div>
     </div>
@@ -130,7 +129,7 @@ export default {
 <style lang="scss" scoped>
 header {
     height: 120px;
-    background: #14d6c6;
+    background: #01ddb9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,7 +188,7 @@ ul > li > a {
     display: block;
     text-decoration: none;
     z-index: 1;
-    font: 15px Arial sans-serif;
+    font: 22px Arial sans-serif;
     font-weight: bold;
     height: 30px;
     letter-spacing: 1px;
@@ -198,6 +197,11 @@ ul > li > a {
     padding: 10px 20px;
     color: white;
 }
+
+#tel{
+    margin-right: 90px;
+}
+
 
 ul > li > a:hover {
   outline: 3px solid #FFD700;
@@ -255,6 +259,10 @@ ul > li > a:hover {
     width: 80%;
     justify-content:space-between;
   }
+
+    ul > li > a{
+        font-size: 15px;
+    }
 }
 
 .hamburger {
@@ -303,13 +311,13 @@ ul > li > a:hover {
 }
 
 .hamburger.active .patties::before {
-  background: #14d6c6;
+  background: #01ddb9;
   transform: rotate(45deg);
   top: 0;
 }
 
 .hamburger.active .patties::after {
-  background: #14d6c6;
+  background: #01ddb9;
   transform: rotate(-45deg);
   top: 0;
 }
@@ -321,7 +329,7 @@ ul > li > a:hover {
 }
 
 .menu {
-  background: #14d6c6;
+  background: #01ddb9;
   transition: top 0.5s ease;
   display: inline-block;
   padding: 1rem;
