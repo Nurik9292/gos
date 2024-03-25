@@ -91,8 +91,13 @@
                 <div class="multi-level collapse"
                      role="list" id="submenu-about" aria-expanded="false">
                     <ul class="flex-column nav">
+                        <li class="nav-item @if($page == 'about-image') active @endif">
+                            <a class="nav-link" href="{{route('about-image.index')}}">
+                                <span class="sidebar-text">Баннер</span>
+                            </a>
+                        </li>
                         <li class="nav-item @if($page == 'about-text') active @endif">
-                            <a class="nav-link" href="{{route('about-text.index')}}">
+                            <a class="nav-link" href="{{route('about-image.index')}}">
                                 <span class="sidebar-text">Текст</span>
                             </a>
                         </li>

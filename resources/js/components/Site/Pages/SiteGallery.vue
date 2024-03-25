@@ -90,6 +90,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit: cover;
 }
 
 .swiper-slide img {

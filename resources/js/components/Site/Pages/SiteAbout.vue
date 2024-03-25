@@ -29,13 +29,12 @@ export default {
                   }
               }
 
-          }
+          },
     },
 
     mounted() {
         api.getAbouts()
             .then(data => {
-                console.log(data)
                 this.texts = data.data[0].text;
                 this.contents = data.data;
             })
@@ -43,8 +42,7 @@ export default {
 
         api.getAboutBanner()
             .then(data => {
-                console.log(data)
-
+                this.banner = data.data[0].image;
             })
             .catch(error => console.error('Error fetching about banner:', error));
     }
@@ -53,7 +51,7 @@ export default {
 
 <template>
     <div class="banner">
-        <img src="image/5.jpg" alt="Изображение баннера">
+        <img :src="banner" alt="Изображение баннера">
     </div>
     <section>
         <div class="text_head">

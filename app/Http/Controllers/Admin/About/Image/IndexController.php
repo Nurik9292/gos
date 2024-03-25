@@ -13,8 +13,8 @@ class IndexController extends Controller
     {
         $page = 'about-image';
 
-        $banner = AboutImage::all()->first();
+        $aboutImage = AboutImage::all()->first();
 
-        return view('admin.about.image.index', compact('page', 'banner'));
+        return view('admin.about.image.index', compact('page', 'aboutImage'));
     }
 }

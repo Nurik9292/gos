@@ -11,6 +11,6 @@ class AboutImageController extends Controller
 {
     public function __invoke(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        return AboutImageResource::collection(AboutImage::all()->first());
+        return AboutImageResource::collection(AboutImage::all());
     }
 }

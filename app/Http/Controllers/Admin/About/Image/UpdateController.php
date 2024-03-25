@@ -11,6 +11,8 @@ class UpdateController extends BaseController
 {
     public function __invoke(AboutImageRequest $request, AboutImage $aboutImage): \Illuminate\Http\RedirectResponse
     {
-        return redirect()->route("admin-image.index");
+        $this->service->update($request->validated()['image'], $aboutImage);
+
+        return redirect()->route("about-image.index");
     }
 }

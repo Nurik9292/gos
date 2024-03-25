@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin\About\Image;
 
 use App\Http\Controllers\Controller;
 use App\Services\AboutImage\Service;
-use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
