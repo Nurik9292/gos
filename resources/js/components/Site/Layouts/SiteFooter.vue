@@ -77,11 +77,11 @@ export default {
                     <ul>
                         <li>
                             <p>{{$t('tel')}}:</p>
-                            <span>+99361112233</span>
+                            <span>{{tel}}</span>
                         </li>
                         <li>
                             <p>{{ $t('email') }}:</p>
-                            <span>example@gmail.com</span>
+                            <span>{{email}}</span>
                         </li>
                         <li>
                             <p>{{ $t('address') }}:</p>
@@ -170,6 +170,11 @@ span{
 .box_email{
     width: 60%;
     margin-top: 50px;
+}
+
+.box_address{
+    width: 90%;
+    margin-right: 50px;
 }
 
 .box_address > ul > li{
