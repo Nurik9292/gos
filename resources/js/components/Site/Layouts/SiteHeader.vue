@@ -9,7 +9,7 @@ export default {
     MultiLanguage
   },
 
-    props: ["logos"],
+    props: ["logos", "tel"],
 
 
   data() {
@@ -30,7 +30,9 @@ export default {
   },
 
     computed:{
-
+        getTel(){
+            return this.tel;
+        }
     },
 
   mounted() {
@@ -94,7 +96,7 @@ export default {
           <li><RouterLink :to="{name: 'gallery'}">{{ $t('gallery') }}</RouterLink></li>
           <li><RouterLink :to="{name: 'abouts'}">{{ $t('about') }}</RouterLink></li>
           <li><a id="tel" href="#footer">{{ $t('contact') }}</a></li>
-          <li v-if="telHidden"> <a href="tel:+79998887766">+993 61 11-11-66</a></li>
+          <li v-if="telHidden"> <a :href="'tel:' + tel">{{tel}}</a></li>
           <li><MultiLanguage></MultiLanguage></li>
         </ul>
 
@@ -115,7 +117,7 @@ export default {
             <li><RouterLink :to="{name: 'gallery'}">{{ $t('gallery') }}</RouterLink></li>
             <li><RouterLink :to="{name: 'abouts'}">{{ $t('about') }}</RouterLink></li>
             <li><a href="#footer">{{ $t('contact') }}</a></li>
-            <li> <a id="tel" href="tel:+79998887766">+993 61 11-11-66</a></li>
+            <li> <a id="tel" :href="'tel:' + tel">{{tel}}</a></li>
             <li>
                 <MultiLanguage></MultiLanguage>
             </li>

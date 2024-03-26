@@ -10,7 +10,8 @@ export default {
     data(){
         return{
             logos: [],
-            footer: ''
+            footer: '',
+            tel: ''
         }
     },
 
@@ -22,6 +23,10 @@ export default {
         api.getFooters()
             .then(data => {this.footer = data.data[0]})
             .catch(error => console.error('Error fetching banners:', error));
+
+        api.getFooterContacts().then(res => {
+            this.tel = res.data[0].tel;
+        })
     },
 
     methods:{
@@ -36,7 +41,7 @@ export default {
 </script>
 
 <template>
-    <SiteHeader :logos="logos"></SiteHeader>
+    <SiteHeader :logos="logos" :tel="tel"></SiteHeader>
     <RouterView />
     <SiteFooter :logo="getFirstLogo()" :footer="footer" id="footer"></SiteFooter>
 </template>

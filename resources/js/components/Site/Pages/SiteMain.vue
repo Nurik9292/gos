@@ -90,6 +90,8 @@ export default {
                 this.lastGallery = data.data;
             })
             .catch(error => console.error('Error fetching last gallery:', error));
+
+
     }
 
 }
