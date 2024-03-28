@@ -201,7 +201,7 @@ ul > li > a {
 }
 
 #tel{
-    margin-right: 80px;
+    margin-right: 70px;
 }
 
 
