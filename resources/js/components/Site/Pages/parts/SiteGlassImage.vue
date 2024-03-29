@@ -90,7 +90,7 @@ h2{
     position: absolute;
     left: 0;
     z-index: 3;
-    border-bottom: 350px solid #0a3622;
+    border-bottom: 350px solid #012c00;
     border-right: 350px solid transparent;
     height: 0;
     width: 50%;
