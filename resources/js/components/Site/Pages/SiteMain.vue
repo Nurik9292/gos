@@ -51,6 +51,11 @@ export default {
                     default:
                         return '';
                 }
+        },
+
+        getTitleLength(){
+            if(this.titleClean)
+                return this.titleClean.length + 'cv';
         }
     },
 
@@ -117,10 +122,11 @@ export default {
         <div class="second_banner">
             <img :src="cleanBanner" alt="Изображение баннера">
             <div class="text_banner">
-                <h1 class="typed-text">{{titleClean}}</h1>
+                <h1 class="typed-text" :style="{width: getTitleLength}">{{titleClean}}</h1>
             </div>
         </div>
     </section>
+    {{titleClean}}
     <CarouselWrapper :gallery="lastGallery" id="carousel"></CarouselWrapper>
 </template>
 
@@ -193,7 +199,6 @@ section{
     font: 3vw Montserrat;
     font-weight: 600;
     margin-bottom: 10px;
-    width: 31ch;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid black;
@@ -220,10 +225,10 @@ section{
         width: 0;
     }
     80% {
-        width: 31ch;
+        width: 35ch;
     }
     100% {
-        width: 31ch;
+        width: 35ch;
     }
 }
 

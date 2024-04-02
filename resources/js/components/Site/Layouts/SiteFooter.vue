@@ -16,10 +16,19 @@ export default {
 
     computed:{
         getContent(){
-            let content;
-            if(this.footer)
-                content = this.footer.content.ru;
-            return content;
+            const local = this.$i18n.locale;
+            if(this.footer) {
+                switch (local) {
+                    case 'tm':
+                        return this.footer.content.tm;
+                    case 'ru':
+                        return this.footer.content.ru;
+                    case 'en':
+                        return this.footer.content.en;
+                    default:
+                        return '';
+                }
+            }
         },
 
         getAddress(){

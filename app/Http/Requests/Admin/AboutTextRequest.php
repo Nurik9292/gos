@@ -22,9 +22,9 @@ class AboutTextRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ru_text' => ['required', 'string', 'max:2000', 'min:100'],
-            'tm_text' => ['required', 'string', 'max:2000', 'min:100'],
-            'en_text' => ['required', 'string', 'max:2000', 'min:100']
+            'ru_text' => ['required', 'string', 'max:3000', 'min:100'],
+            'tm_text' => ['required', 'string', 'max:3000', 'min:100'],
+            'en_text' => ['required', 'string', 'max:3000', 'min:100']
         ];
     }
 
@@ -32,14 +32,14 @@ class AboutTextRequest extends FormRequest
     {
         return[
             'ru_text.required' => 'Заполните поле',
-            'ru_text.max' => 'Максимальное количесвто символво 2000',
-            'ru_text.min' => 'Минимальное количесвто символво 2000',
+            'ru_text.max' => 'Максимальное количесвто символво 3000',
+            'ru_text.min' => 'Минимальное количесвто символво 3000',
             'tm_text.required' => 'Заполните поле',
-            'tm_text.max' => 'Максимальное количесвто символво 2000',
-            'tm_text.min' => 'Минимальное количесвто символво 2000',
+            'tm_text.max' => 'Максимальное количесвто символво 3000',
+            'tm_text.min' => 'Минимальное количесвто символво 3000',
             'en_text.required' => 'Заполните поле',
-            'en_text.max' => 'Максимальное количесвто символво 2000',
-            'en_text.min' => 'Минимальное количесвто символво 2000',
+            'en_text.max' => 'Максимальное количесвто символво 3000',
+            'en_text.min' => 'Минимальное количесвто символво 3000',
         ];
     }
 }

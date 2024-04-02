@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li class="nav-item @if($page == 'about-text') active @endif">
-                            <a class="nav-link" href="{{route('about-image.index')}}">
+                            <a class="nav-link" href="{{route('about-text.index')}}">
                                 <span class="sidebar-text">Текст</span>
                             </a>
                         </li>

@@ -26,9 +26,9 @@ class AboutRequest extends FormRequest
             'tm_content' => ['nullable', 'string', 'max:800'],
             'ru_content' => ['nullable', 'string', 'max:800'],
             'en_content' => ['nullable', 'string', 'max:800'],
-            'tm_title' => ['nullable', 'string', 'max:80'],
-            'ru_title' => ['nullable', 'string', 'max:80'],
-            'en_title' => ['nullable', 'string', 'max:80'],
+            'tm_title' => ['nullable', 'string', 'max:130'],
+            'ru_title' => ['nullable', 'string', 'max:130'],
+            'en_title' => ['nullable', 'string', 'max:130'],
         ];
     }
 
@@ -45,9 +45,9 @@ class AboutRequest extends FormRequest
             'image.image' => 'Выберите изображение',
             'image.mimes' => 'Выберите изображение в формате jpeg jpg png',
             'image.max' => 'Максимальный размер 1MB',
-            'tm_title.max' => 'Превышено максимальное количество символов 80',
-            'ru_title.max' => 'Превышено максимальное количество символов 80',
-            'en_title.max' => 'Превышено максимальное количество символов 80',
+            'tm_title.max' => 'Превышено максимальное количество символов 130',
+            'ru_title.max' => 'Превышено максимальное количество символов 130',
+            'en_title.max' => 'Превышено максимальное количество символов 130',
             'tm_title.required' => 'Заполните поле',
             'ru_title.required' => 'Заполните поле',
             'en_title.required' => 'Заполните поле',
